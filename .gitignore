@@ -8,7 +8,7 @@ DexelaDetector.lib
 *.tiff
 *.smv
 
-*.sdf
+*.opensdf
 *.*scc
 *.FileListAbsolute.txt
 *.aps
