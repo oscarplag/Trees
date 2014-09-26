@@ -193,7 +193,7 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	tree.printLevels();
 
-	node* test = tree.findCommonParent_NoParent(7,15);
+	node* test = tree.findCommonParent(7,15);
 
 	if(test!=NULL)
 		printf("Common Parent is: %d\n",test->key_val);

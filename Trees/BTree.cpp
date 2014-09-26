@@ -63,7 +63,6 @@ void BST::insert_node(int key)
 		root->key_val = key;
 		root->left_child = NULL;
 		root->right_child = NULL;
-		root->parent = NULL;
 	}
 	else
 		insert_node(root,key);
@@ -79,7 +78,6 @@ void BST::insert_node(node* n, int key)
 			n->left_child->key_val = key;
 			n->left_child->left_child = NULL;
 			n->left_child->right_child = NULL;
-			n->left_child->parent = n;
 		}
 		else
 			insert_node(n->left_child,key);
@@ -92,7 +90,6 @@ void BST::insert_node(node* n, int key)
 			n->right_child->key_val = key;
 			n->right_child->left_child = NULL;
 			n->right_child->right_child = NULL;
-			n->right_child->parent = n;
 		}
 		else
 		{
@@ -148,28 +145,10 @@ node* BST::flipTree(node* n)
 	{
 		flipTree(n->left_child);
 	}
-
-
-	//if(n->left_child == NULL)
-	//{
-	//	root = n;
-	//}
-	//if(n->parent!=NULL)
-	//{
-	//	n->left_child = n->parent->right_child;
-	//	n->right_child = n->parent;
-	//}
-	//else
-	//{
-	//	n->left_child = NULL;
-	//	n->right_child = NULL;
-	//}
-
 	
 	if(n->left_child==NULL)
 	{	
 		root = n;
-		//n->parent = NULL;
 		return n;
 	}
 	else
@@ -178,54 +157,11 @@ node* BST::flipTree(node* n)
 		n->left_child->right_child = n;
 		n->left_child = NULL;
 		n->right_child = NULL;
-		//n->parent = n->left_child;
 	}
 	return n;
 }
 
 node* BST::findCommonParent(int val1, int val2)
-{
-	node* n1 = BST::search_tree(val1);
-	if(n1 == NULL)
-		return NULL;
-	node* n2 = BST::search_tree(val2);
-	if(n2 == NULL)
-		return NULL;
-
-	return findCommonParent(n1,n2);
-
-}
-
-node* BST::findCommonParent(node* n1, node* n2)
-{
-	stack<node*> s1;
-	stack<node*> s2;
-
-	buildAncestorStack(n1,s1);
-	buildAncestorStack(n2,s2);
-
-	node* commonParent = NULL;
-
-	while(!s1.empty() && !s2.empty() && s1.top() == s2.top() )
-	{
-		commonParent = s1.top();
-		s1.pop();
-		s2.pop();
-	}
-
-	return commonParent;
-}
-
-void BST::buildAncestorStack(node* n, stack<node*>& stack)
-{
-	if(n->parent!=NULL)
-	{
-		stack.push(n->parent);
-		buildAncestorStack(n->parent, stack);
-	}
-}
-
-node* BST::findCommonParent_NoParent(int val1, int val2)
 {
 	queue<node*>q1 = search_tree_queue(val1);
 	if(q1.empty())

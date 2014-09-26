@@ -6,7 +6,6 @@ using namespace std;
 
 struct node
 {
-	node* parent;
 	node* left_child;
 	node* right_child;
 	int key_val;
@@ -24,7 +23,6 @@ public:
 	void printLevels();
 	void flipTree();
 	node* findCommonParent(int val1, int val2);
-	node* findCommonParent_NoParent(int val1, int val2);
 
 private:
 	node* root;
@@ -34,8 +32,5 @@ private:
 	void insert_node(node* n, int key);
 	void printLevels(node* n);
 	node* flipTree(node* n);
-	node* findCommonParent(node* n1, node* n2);
-
-	void buildAncestorStack(node* n, stack<node*>& stack);
 };
 
