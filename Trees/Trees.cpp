@@ -31,7 +31,8 @@
 //#define MAX_PRODSUBARRAY
 //#define TUPLE_RANGE
 //#define WORD_JUSTIFIER
-#define HUNDRED_GAME
+//#define HUNDRED_GAME
+#define POWER
 
 using namespace std;
 
@@ -44,6 +45,8 @@ vector<string> GetGreyCodeRecurse(int n, vector<string> arr);
 void findIndecies(int arr[], int& low, int& high, int val, int cap);
 int findLowIndex(int arr[], int start, int stop, int val);
 int findHighIndex(int arr[], int start, int stop, int val, int cap);
+double _power(double x, int y);
+double power(double x, int y);
 
 #ifdef PERMUTATIONS_VECTOR
 vector<string> GetPermutations(string str);
@@ -66,6 +69,12 @@ int _tmain(int argc, _TCHAR* argv[])
 	LARGE_INTEGER frequency;
 	LARGE_INTEGER t1, t2, t3, t4;
 	double elapsedTime;
+
+#ifdef POWER
+	double a = power(2,4);
+	double b = power(12,-5);
+	double c = power(3,4);
+#endif
 
 #ifdef HUNDRED_GAME
 
@@ -713,6 +722,24 @@ int findRange(vector<pair<int,int>> &pairList)
 	range += end-begin;
 
 	return range;
+}
+
+double _power(double x, int y)
+{
+	if(y==0) return 1;
+
+	double t = _power(x, y/2);
+	t *= t;
+
+	int val = ((y%2)?x:1);
+
+	return t * ( (y%2)?x:1 );
+}
+
+double power(double x, int y)
+{
+	if(y<0) return (1/_power(x,y));
+	else return _power(x,y);
 }
 
 /*
