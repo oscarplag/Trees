@@ -15,10 +15,12 @@
 #include <algorithm>
 #include <utility>
 #include "WordJustifier.h"
+#include "HundredGame.h"
+#include "PickNumber.h"
 
 
 //#define INDECIES
-#define COMMONPARENT
+//#define COMMONPARENT
 //#define PERMUTATIONS
 //#define PERMUTATIONS_VECTOR
 //#define HEAP
@@ -29,6 +31,7 @@
 //#define MAX_PRODSUBARRAY
 //#define TUPLE_RANGE
 //#define WORD_JUSTIFIER
+#define HUNDRED_GAME
 
 using namespace std;
 
@@ -63,6 +66,23 @@ int _tmain(int argc, _TCHAR* argv[])
 	LARGE_INTEGER frequency;
 	LARGE_INTEGER t1, t2, t3, t4;
 	double elapsedTime;
+
+#ifdef HUNDRED_GAME
+
+	HundredGame test(2,3);
+	if(test.canIWinCustom2())
+		printf("I can win!\n");
+	else
+		printf("I can't win :(\n");
+
+	if(test.canIWin())
+		printf("I can win!\n");
+	else
+		printf("I can't win :(\n");
+
+	int bla = 0;
+	bla++;
+#endif HUNDRED_GAME
 
 #ifdef WORD_JUSTIFIER
 	vector<string> stringList;
