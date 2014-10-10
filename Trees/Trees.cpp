@@ -18,7 +18,7 @@
 
 
 //#define INDECIES
-#define COMMONPARENT
+//#define COMMONPARENT
 //#define PERMUTATIONS
 //#define PERMUTATIONS_VECTOR
 //#define HEAP
@@ -28,7 +28,7 @@
 //#define MAX_SUMSUBARRAY
 //#define MAX_PRODSUBARRAY
 //#define TUPLE_RANGE
-//#define WORD_JUSTIFIER
+#define WORD_JUSTIFIER
 
 using namespace std;
 
