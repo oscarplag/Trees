@@ -110,6 +110,8 @@ void WordJustifier::solveWordWrapCustom(vector<int> lengths, int M)
 					lineStart = j;
 				}
 			}
+			else
+				continue;
 		}
 		costs.push_back(cost);
 		lineStarts.push_back(lineStart);
@@ -195,8 +197,8 @@ void WordJustifier::solveWordWrap (int l[], int n, int M)
         {
             if (extras[i][j] < 0)
                 lc[i][j] = INT_MAX;
-            else if (j == n && extras[i][j] >= 0)
-                lc[i][j] = 0;
+            //else if (j == n && extras[i][j] >= 0)
+            //    lc[i][j] = 0;
             else
                 lc[i][j] = extras[i][j]*extras[i][j];
         }
@@ -225,10 +227,10 @@ void WordJustifier::solveWordWrap (int l[], int n, int M)
 		delete[] lc[i];
 	}
 
-	for(int i = 0; i< n+1; i++)
+	/*for(int i = 0; i< n+1; i++)
 	{
 		cout << p[i] << endl;
-	}
+	}*/
 
 	printSolution(p, n);
 

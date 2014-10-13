@@ -26,9 +26,10 @@
 //#define BST_TEST
 //#define COMMON_LETTER
 //#define MAX_SUMSUBARRAY
-//#define MAX_PRODSUBARRAY
+#define MAX_PRODSUBARRAY
 //#define TUPLE_RANGE
-#define WORD_JUSTIFIER
+//#define WORD_JUSTIFIER
+//#define KNAPSACK
 
 using namespace std;
 
@@ -41,6 +42,8 @@ vector<string> GetGreyCodeRecurse(int n, vector<string> arr);
 void findIndecies(int arr[], int& low, int& high, int val, int cap);
 int findLowIndex(int arr[], int start, int stop, int val);
 int findHighIndex(int arr[], int start, int stop, int val, int cap);
+int maximum(int a,int b);
+int Knapsack(int items,int weight[],int value[],int maxWeight);
 
 #ifdef PERMUTATIONS_VECTOR
 vector<string> GetPermutations(string str);
@@ -61,8 +64,27 @@ int findRange(vector<pair<int,int>> &pairList);
 int _tmain(int argc, _TCHAR* argv[])
 {
 	LARGE_INTEGER frequency;
+	::QueryPerformanceFrequency(&frequency);
 	LARGE_INTEGER t1, t2, t3, t4;
 	double elapsedTime;
+
+#ifdef KNAPSACK
+	int items = 3;
+    //scanf("%d",&items);
+    int* weight = new int [items+1];
+	int* value = new int [items+1];
+    int iter;
+    for(iter=1;iter<=items;iter++)
+    {
+		weight[iter] = iter;
+		value[iter] = (int)pow((float)2,iter);
+            // scanf("%d%d",&weight[iter],&value[iter]);
+    }
+    int maxWeight;
+	printf("Please enter maximum weight: ");
+    scanf("%d",&maxWeight);
+    printf("Max value attained can be %d\n",Knapsack(items,weight,value,maxWeight));
+#endif
 
 #ifdef WORD_JUSTIFIER
 	vector<string> stringList;
@@ -76,10 +98,25 @@ int _tmain(int argc, _TCHAR* argv[])
 	
 	
 	WordJustifier wj(stringList);
+	WordJustifier wj2(stringList);
+	
 
-	//wj.Justify(10);
+	::QueryPerformanceCounter(&t1);
+	wj2.Justify(8);
+	::QueryPerformanceCounter(&t2);
+	double time = (t2.QuadPart - t1.QuadPart) * 1000.0/ frequency.QuadPart;
+	wj2.print();
+	
+	::QueryPerformanceCounter(&t3);
 	wj.JustifyCustom(8);
+	::QueryPerformanceCounter(&t4);
+	double timeCustom = (t4.QuadPart - t3.QuadPart) * 1000.0/ frequency.QuadPart;
 	wj.print();
+
+	printf("Standard justification takes: %fms\n",time);
+	printf("Custom justification takes: %fms\n",timeCustom);
+
+
 	int temp = 0;
 	temp++;
 
@@ -256,7 +293,6 @@ int _tmain(int argc, _TCHAR* argv[])
 #endif
 
 #ifdef GREY_CODE
-	::QueryPerformanceFrequency(&frequency);
 	::QueryPerformanceCounter(&t1);
 	vector<string> grey1 = GetGreyCodeRecurse(10);
 	::QueryPerformanceCounter(&t2);
@@ -329,9 +365,6 @@ int _tmain(int argc, _TCHAR* argv[])
 	temp.push_back(temp2);
 	temp.push_back(temp3);
 
-
-	
-	::QueryPerformanceFrequency(&frequency);
 	::QueryPerformanceCounter(&t1);
 	int answer = NumCommonCharsCustom(temp);
 	::QueryPerformanceCounter(&t2);
@@ -695,10 +728,7 @@ int findRange(vector<pair<int,int>> &pairList)
 	return range;
 }
 
-/*
-#include<stdio.h>
-#include<cmath>
-int max(int a,int b)
+int maximum(int a,int b)
 {
         return a>b?a:b;
 }
@@ -725,20 +755,16 @@ int Knapsack(int items,int weight[],int value[],int maxWeight)
                         dp[iter][w] = dp[iter-1][w]; // If I do not take this item 
                         if(w-weight[iter] >=0)
                         {
-								if(iter ==2 && w==2)
-								{
-									int a = 0;
-									a++;
-								}
-                                // suppose if I take this item 
-                                dp[iter][w] = max(dp[iter][w] , dp[iter-1][w-weight[iter]]+value[iter]);
-								printf("i: %d, w: %d, max: %d\n",iter,w,dp[iter][w]);
+							// suppose if I take this item 
+							dp[iter][w] = max(dp[iter][w] , dp[iter-1][w-weight[iter]]+value[iter]);								
                         }
+						printf("i: %d, w: %d, max: %d\n",iter,w,dp[iter][w]);
                 }
 
         }
         return dp[items][maxWeight];
 }
+/*
 int _tmain(int argc, _TCHAR* argv[])
 {
         int items = 3;
