@@ -190,11 +190,12 @@ void Heap::print_heap()
 			tempQueue.push(myQueue.front());
 			myQueue.pop();
 		}
+		/*
 		for(int i = depthCounter;i<queueDepth-1;i++)
 		{
 				cout << "   ";
 		}
-		cout << " ";
+		cout << " ";*/
 
 		depthCounter++;
 		while(!tempQueue.empty())
@@ -202,7 +203,7 @@ void Heap::print_heap()
 			int temp = tempQueue.front();
 			tempQueue.pop();
 
-			printf("%2d ",arr[temp]);
+			printf("%3d ",arr[temp]);
 			//cout << arr[temp] << " ";
 
 			int pos = 2*temp;

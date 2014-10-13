@@ -26,10 +26,11 @@
 //#define BST_TEST
 //#define COMMON_LETTER
 //#define MAX_SUMSUBARRAY
-#define MAX_PRODSUBARRAY
+//#define MAX_PRODSUBARRAY
 //#define TUPLE_RANGE
 //#define WORD_JUSTIFIER
 //#define KNAPSACK
+#define POWER_TEST
 
 using namespace std;
 
@@ -44,6 +45,7 @@ int findLowIndex(int arr[], int start, int stop, int val);
 int findHighIndex(int arr[], int start, int stop, int val, int cap);
 int maximum(int a,int b);
 int Knapsack(int items,int weight[],int value[],int maxWeight);
+double power(int x, int y);
 
 #ifdef PERMUTATIONS_VECTOR
 vector<string> GetPermutations(string str);
@@ -67,6 +69,20 @@ int _tmain(int argc, _TCHAR* argv[])
 	::QueryPerformanceFrequency(&frequency);
 	LARGE_INTEGER t1, t2, t3, t4;
 	double elapsedTime;
+
+#ifdef POWER_TEST
+	while(true)
+	{
+		int x;
+		printf("Please enter x: ");
+		scanf("%d",&x);
+		int y;
+		printf("Please enter y: ");
+		scanf("%d",&y);
+		double test = power(x,y);
+		printf("%d^%d=%f\n",x,y,test);
+	}
+#endif
 
 #ifdef KNAPSACK
 	int items = 3;
@@ -208,6 +224,22 @@ int _tmain(int argc, _TCHAR* argv[])
 	int stop = 0;
 
 	findIndecies(arr,start,stop,5,10);
+
+
+	int arr2[7];
+	int start2 = 0;
+	int stop2 = 0;
+
+	arr2[0] = 1;
+	arr2[1] = 1;
+	arr2[2] = 2;
+	arr2[3] = 3;
+	arr2[4] = 4;
+	arr2[5] = 4;
+	arr2[6] = 5;
+
+	findIndecies(arr2,start2,stop2,4,7);
+
 #endif
 
 #ifdef COMMONPARENT
@@ -230,14 +262,20 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	tree.printLevels();
 
-	node* test = tree.findCommonParent(7,15);
+	int val1 = 24;
+	int val2 = 40;
+
+	node* test = tree.findCommonParent(val1,val2);
 
 	if(test!=NULL)
-		printf("Common Parent is: %d\n",test->key_val);
+		printf("\nCommon Parent of %d and %d is: %d\n",val1,val2,test->key_val);
+	else
+		printf("\nOne of the values was not found in the BST!\n");
 #endif
 
 #ifdef PERMUTATIONS
 	string temp = "ABCD";
+	//string temp = "ABCC";
 
 #ifdef PERMUTATIONS_VECTOR
 	vector<string> tempArr = GetPermutations(temp);
@@ -764,22 +802,19 @@ int Knapsack(int items,int weight[],int value[],int maxWeight)
         }
         return dp[items][maxWeight];
 }
-/*
-int _tmain(int argc, _TCHAR* argv[])
+
+double power(int x, int y)
 {
-        int items = 3;
-        //scanf("%d",&items);
-        int* weight = new int [items+1];
-		int* value = new int [items+1];
-        int iter;
-        for(iter=1;iter<=items;iter++)
-        {
-			weight[iter] = iter;
-			value[iter] = (int)pow((float)2,iter);
-               // scanf("%d%d",&weight[iter],&value[iter]);
-        }
-        int maxWeight;
-        scanf("%d",&maxWeight);
-        printf("Max value attained can be %d\n",Knapsack(items,weight,value,maxWeight));
+	if(y==0)
+		return 1;
+	else if(y==1)
+		return x;
+
+	double ans = power(x,y/2);
+	ans = ans*ans;
+
+	if(y%2!=0)
+		ans *=x;
+
+	return ans;
 }
-*/
