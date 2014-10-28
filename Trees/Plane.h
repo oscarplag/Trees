@@ -18,6 +18,13 @@ struct Point
 		x = 0;
 		y=0;
 	}
+	bool operator==(Point p2)
+	{
+		if(p2.x == x && p2.y == y)
+			return true;
+		else
+			return false;
+	}
 };
 
 struct PointCenter

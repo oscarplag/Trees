@@ -33,9 +33,14 @@ vector<Point> Plane::findClosestPoints(Point center, int numPoints)
 
 	vector<Point> closestPoints;
 
-	for(int i = 0;i<numPoints && !_centerDistances.empty();i++)
+	for(int i = 0;i<numPoints && !_centerDistances.empty();)
 	{
-		closestPoints.push_back(_centerDistances.top().p);
+		Point p = _centerDistances.top().p;
+		if(!(p==_center))
+		{
+			closestPoints.push_back(_centerDistances.top().p);
+			i++;
+		}
 		_centerDistances.pop();
 	}
 

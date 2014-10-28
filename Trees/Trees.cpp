@@ -88,7 +88,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	plane.addPoint(Point(0,4));
 	plane.addPoint(Point(0,5));
 
-	vector<Point> nearestPoints = plane.findClosestPoints(Point(0,3),3);
+	vector<Point> nearestPoints = plane.findClosestPoints(Point(0,3),6);
 	int a = 0;
 	a++;
 #endif
