@@ -1,31 +1,10 @@
 #pragma once
 #include <vector>
 #include <queue>
+#include "Point.h"
+#include "CustomHeap.h"
 
 using namespace std;
-
-struct Point
-{
-	int x;
-	int y;
-	Point(int X, int Y)
-	{
-		x = X;
-		y = Y;
-	}
-	Point()
-	{
-		x = 0;
-		y=0;
-	}
-	bool operator==(Point p2)
-	{
-		if(p2.x == x && p2.y == y)
-			return true;
-		else
-			return false;
-	}
-};
 
 struct PointCenter
 {
@@ -65,3 +44,17 @@ public:
 	vector<Point> findClosestPoints(Point center, int numPoints);
 };
 
+class CustomPlane
+{
+private:
+	vector<Point> _planePoints;
+	CustomHeap* _centerDistances;
+	Point _center;
+
+public:
+	CustomPlane(void);
+	~CustomPlane(void);
+	void addPoint(Point p);
+
+	vector<Point> findClosestPoints(Point center, int numPoints);
+};
