@@ -137,6 +137,7 @@
     <ClInclude Include="BTree.h" />
     <ClInclude Include="CustomHeap.h" />
     <ClInclude Include="Heap.h" />
+    <ClInclude Include="NestedList.h" />
     <ClInclude Include="Plane.h" />
     <ClInclude Include="Point.h" />
     <ClInclude Include="stdafx.h" />
@@ -147,6 +148,7 @@
     <ClCompile Include="BTree.cpp" />
     <ClCompile Include="CustomHeap.cpp" />
     <ClCompile Include="Heap.cpp" />
+    <ClCompile Include="NestedList.cpp" />
     <ClCompile Include="Plane.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

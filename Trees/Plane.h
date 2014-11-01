@@ -33,7 +33,6 @@ class Plane
 private:
 	Point _center;
 	vector<Point> _planePoints;
-	static int smallestDistance(Point p1, Point p2);
 	priority_queue<PointCenter, vector<PointCenter>,Compare> _centerDistances;	
 
 public:

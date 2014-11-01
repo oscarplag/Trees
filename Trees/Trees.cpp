@@ -16,6 +16,7 @@
 #include <utility>
 #include "WordJustifier.h"
 #include "Plane.h"
+#include "NestedList.h"
 
 
 //#define INDECIES
@@ -34,8 +35,8 @@
 //#define POWER_TEST
 //#define ROTATED_SEARCH
 //#define SELF_EXCLUDING_PRODUCT
-#define PLANE_POINTS
-
+//#define PLANE_POINTS
+#define NESTED_LIST
 
 using namespace std;
 
@@ -79,6 +80,33 @@ int _tmain(int argc, _TCHAR* argv[])
 	::QueryPerformanceFrequency(&frequency);
 	LARGE_INTEGER t1, t2, t3, t4;
 	double elapsedTime;
+
+#ifdef NESTED_LIST
+	NestedList nl;
+
+	nl.addInt(1);
+	nl.addList();
+	nl[1]->addInt(2);
+	nl[1]->addList();
+	nl[1]->addInt(3);
+	nl.addInt(4);
+	nl[1][1].addInt(6);
+
+	for(std::vector<NestedList*>::iterator it = nl.begin(); it!=nl.end(); ++it)
+	{
+		NestedList* temp = *it;
+		if(temp->isInteger())
+		{
+			printf("%d ",temp->getInteger());
+		}
+	}
+
+	int test = nl.getSum();
+	int test2 = 0;
+	test2++;
+
+
+#endif
 
 #ifdef PLANE_POINTS
 	Plane plane;
@@ -547,8 +575,6 @@ vector<int> SelfExcludingProduct(vector<int> &input)
 
 	return out;
 }
-
-
 
 int RotatedSearch(vector<int> &list, int key)
 {
