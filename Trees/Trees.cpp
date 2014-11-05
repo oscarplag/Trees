@@ -86,11 +86,14 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	nl.addInt(1);
 	nl.addList();
-	nl[1]->addInt(2);
-	nl[1]->addList();
-	nl[1]->addInt(3);
+	nl.At(1)->addInt(2);
+	nl.At(1)->addList();
+	nl.At(1)->addInt(3);
 	nl.addInt(4);
-	nl[1][1].addInt(6);
+	nl.At(1)->At(1)->addInt(6);
+	nl.At(1)->At(1)->addInt(2);
+	nl.At(1)->At(1)->addList();
+	nl.At(1)->At(1)->At(2)->addInt(3);
 
 	for(std::vector<NestedList*>::iterator it = nl.begin(); it!=nl.end(); ++it)
 	{

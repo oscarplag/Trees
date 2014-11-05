@@ -14,12 +14,7 @@ NestedList::NestedList(void)
 
 NestedList::~NestedList(void)
 {
-	while(!_nestedList.empty())
-	{
-		NestedList* temp = _nestedList.back();
-		delete[] temp;
-		_nestedList.pop_back();
-	}
+	deleteList();
 }
 
 void NestedList::addInt(int val)
@@ -47,6 +42,11 @@ NestedList* NestedList::operator[](int index) const
 	return _nestedList[index];
 }
 
+NestedList* NestedList::At(int index)
+{
+	return _nestedList[index];
+}
+
 bool NestedList::isInteger()
 {
 	return _isInt;
@@ -60,12 +60,12 @@ int NestedList::getInteger()
 		return _val;
 }
 
-NestedList NestedList::getList()
+NestedList* NestedList::getList()
 {
 	if(_isInt)
 		throw -2;
 	else
-		return *this;
+		return this;
 }
 
 int NestedList::getSum()
@@ -73,13 +73,13 @@ int NestedList::getSum()
 	if(_isInt)
 		return _val;
 	else
-		return _getSum(*this,1);
+		return _getSum(this,1);
 }
 
-int NestedList::_getSum(NestedList ni,int depth)
+int NestedList::_getSum(NestedList* ni,int depth)
 {
 	int sum = 0;
-	for(std::vector<NestedList*>::iterator it = ni.begin();it!=ni.end();++it)
+	for(std::vector<NestedList*>::iterator it = ni->begin();it!=ni->end();++it)
 	{
 		NestedList* temp = *it;
 		if(temp->isInteger())
@@ -88,4 +88,18 @@ int NestedList::_getSum(NestedList ni,int depth)
 			sum += _getSum(temp->getList(),depth+1);
 	}
 	return sum;
+}
+
+void NestedList::deleteList()
+{
+	while(!_nestedList.empty())
+	{
+		NestedList* temp = _nestedList.back();
+		if(!temp->isInteger())
+		{
+			temp->deleteList();
+		}
+		//delete[] temp;
+		_nestedList.pop_back();
+	}	
 }

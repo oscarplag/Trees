@@ -11,7 +11,8 @@ private:
 	vector<NestedList*> _nestedList;
 	bool _isInt;
 	int _val;
-	int _getSum(NestedList ni,int depth);
+	int _getSum(NestedList* ni,int depth);
+	void deleteList();
 public:
 	NestedList(int val);
 	NestedList(void);
@@ -26,7 +27,9 @@ public:
 
 	bool isInteger();
 	int getInteger();
-	NestedList getList();
+	NestedList* getList();
 	int getSum();
+
+	NestedList* At(int index);
 };
 
