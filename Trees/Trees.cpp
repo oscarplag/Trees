@@ -36,7 +36,8 @@
 //#define ROTATED_SEARCH
 //#define SELF_EXCLUDING_PRODUCT
 //#define PLANE_POINTS
-#define NESTED_LIST
+//#define NESTED_LIST
+#define INFLUENCER
 
 using namespace std;
 
@@ -74,12 +75,84 @@ int RotatedSearch(vector<int> &list, int key);
 int RotatedSearchForward(vector<int> &list, int key, int start, int stop);
 int RotatedSearchBackward(vector<int> &list, int key, int start, int stop);
 
+int FindInfluencer(vector<vector<int>> &users);
+
 int _tmain(int argc, _TCHAR* argv[])
 {
 	LARGE_INTEGER frequency;
 	::QueryPerformanceFrequency(&frequency);
 	LARGE_INTEGER t1, t2, t3, t4;
 	double elapsedTime;
+
+#ifdef INFLUENCER
+	
+	int numUsers=5;	
+	vector<vector<int>> users;
+
+	for(int i = 0; i<numUsers; i++)
+	{
+		vector<int> isFollowing;
+		for(int j = 0;j<numUsers;j++)
+		{
+			if(i==j)
+			{
+				isFollowing.push_back(0);
+			}
+			else
+				isFollowing.push_back(1);
+		}
+		users.push_back(isFollowing);
+	}	 
+
+	int isInfluencer = FindInfluencer(users);
+
+	if(isInfluencer == -1)
+		printf("\nNo Influencer found!!\n");
+	else
+		printf("Influencer found in postion: %d\n",isInfluencer);
+
+	int influencer = 3;
+
+	for(int i = 0; i<numUsers;i++)
+	{
+		users[influencer][i] =0;
+	}
+
+	isInfluencer = FindInfluencer(users);
+
+	if(isInfluencer == -1)
+		printf("\nNo Influencer found!!\n");
+	else
+		printf("Influencer found in postion: %d\n",isInfluencer);
+
+	influencer = 2;
+	users.clear();
+	for(int i = 0; i<numUsers; i++)
+	{
+		vector<int> isFollowing;
+		for(int j = 0;j<numUsers;j++)
+		{
+			if(i==j)
+			{
+				isFollowing.push_back(0);
+			}
+			else if(j==influencer)
+				isFollowing.push_back(1);
+			else
+				isFollowing.push_back(0);
+		
+		}
+		users.push_back(isFollowing);
+	}	
+
+	isInfluencer = FindInfluencer(users);
+
+	if(isInfluencer == -1)
+		printf("\nNo Influencer found!!\n");
+	else
+		printf("Influencer found in postion: %d\n",isInfluencer);
+
+#endif
 
 #ifdef NESTED_LIST
 	NestedList nl;
@@ -545,6 +618,32 @@ int _tmain(int argc, _TCHAR* argv[])
 #endif
 
 	return 0;
+}
+
+int FindInfluencer(vector<vector<int>> &users)
+{
+	for(int i = 0;i<users.size();i++)
+	{
+		bool isInfluencer = true;
+		for(int j= 0;j<users[i].size();j++)
+		{
+			if(i==j)
+			{
+				continue;
+			}
+
+			if(users[i][j] == 1 || users[j][i] == 0)
+			{
+				isInfluencer = false;
+				break;
+			}
+		}
+
+		if(isInfluencer)
+			return i;
+	}
+
+	return -1;
 }
 
 vector<int> SelfExcludingProduct(vector<int> &input)
