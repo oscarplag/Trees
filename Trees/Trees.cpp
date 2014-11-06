@@ -76,6 +76,7 @@ int RotatedSearchForward(vector<int> &list, int key, int start, int stop);
 int RotatedSearchBackward(vector<int> &list, int key, int start, int stop);
 
 int FindInfluencer(vector<vector<int>> &users);
+int FindInfluencer2(vector<vector<int>> &users);
 
 int _tmain(int argc, _TCHAR* argv[])
 {
@@ -105,6 +106,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	}	 
 
 	int isInfluencer = FindInfluencer(users);
+	int isInfluencer2 = FindInfluencer2(users);
 
 	if(isInfluencer == -1)
 		printf("\nNo Influencer found!!\n");
@@ -119,6 +121,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	}
 
 	isInfluencer = FindInfluencer(users);
+	isInfluencer2 = FindInfluencer2(users);
 
 	if(isInfluencer == -1)
 		printf("\nNo Influencer found!!\n");
@@ -146,6 +149,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	}	
 
 	isInfluencer = FindInfluencer(users);
+	isInfluencer2 = FindInfluencer2(users);
 
 	if(isInfluencer == -1)
 		printf("\nNo Influencer found!!\n");
@@ -638,12 +642,30 @@ int FindInfluencer(vector<vector<int>> &users)
 				break;
 			}
 		}
-
 		if(isInfluencer)
 			return i;
 	}
-
 	return -1;
+}
+
+int FindInfluencer2(vector<vector<int>> &users)
+{
+	int cand = 0;
+	for(int i = 1; i<users.size(); i++)
+	{
+		if(users[cand][i] == 1 || users[i][cand]==0)
+		{
+			cand = i;
+		}
+	}
+	for(int i = 0;i<users.size();i++)
+	{
+		if(i==cand)
+			continue;
+		if(users[cand][i]==1||users[i][cand]==0)
+			return-1;
+	}
+	return cand;
 }
 
 vector<int> SelfExcludingProduct(vector<int> &input)
