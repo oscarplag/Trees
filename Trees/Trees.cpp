@@ -37,7 +37,8 @@
 //#define SELF_EXCLUDING_PRODUCT
 //#define PLANE_POINTS
 //#define NESTED_LIST
-#define INFLUENCER
+//#define INFLUENCER
+#define REPEAT_SUBSTRING
 
 using namespace std;
 
@@ -78,12 +79,28 @@ int RotatedSearchBackward(vector<int> &list, int key, int start, int stop);
 int FindInfluencer(vector<vector<int>> &users);
 int FindInfluencer2(vector<vector<int>> &users);
 
+void findRepeatSubStrings(string str,int length);
+
 int _tmain(int argc, _TCHAR* argv[])
 {
 	LARGE_INTEGER frequency;
 	::QueryPerformanceFrequency(&frequency);
 	LARGE_INTEGER t1, t2, t3, t4;
 	double elapsedTime;
+
+#ifdef REPEAT_SUBSTRING
+	
+	string str1 = "ABCACBABC";
+	int length1 = 3;
+	string str2 = "ABCABCABC";
+	int length2 = 2;
+
+	cout << "Substrings of length " << length1 <<" for string \"" << str1 << "\"  are: " << endl;
+	findRepeatSubStrings(str1,3); 
+	cout << endl << "Substrings of length " << length2 <<" for string \"" << str2 << "\"  are: " << endl;
+	findRepeatSubStrings(str2,2);
+
+#endif
 
 #ifdef INFLUENCER
 	
@@ -1175,4 +1192,26 @@ double power(int x, int y)
 		ans *=x;
 
 	return ans;
+}
+
+void findRepeatSubStrings(string str,int length)
+{
+	set<string> repeatStrings;
+	set<string> tempStrings;
+
+	for(int i = 0; i<str.size()-2;i++)
+	{
+		string subStr = str.substr(i,length);
+		if(tempStrings.count(subStr)!=0)
+		{
+			repeatStrings.insert(subStr);
+		}
+		else
+			tempStrings.insert(subStr);
+	}
+	
+	for(set<string>::iterator it = repeatStrings.begin(); it!=repeatStrings.end();it++)
+	{
+		cout << *it << endl;
+	}
 }
