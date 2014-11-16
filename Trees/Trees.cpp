@@ -17,6 +17,8 @@
 #include "WordJustifier.h"
 #include "HundredGame.h"
 #include "PickNumber.h"
+#include "Plane.h"
+#include "NestedList.h"
 
 
 //#define INDECIES
@@ -30,9 +32,14 @@
 //#define MAX_SUMSUBARRAY
 //#define MAX_PRODSUBARRAY
 //#define TUPLE_RANGE
-//#define WORD_JUSTIFIER
 //#define HUNDRED_GAME
-#define POWER
+//#define KNAPSACK
+//#define POWER_TEST
+//#define ROTATED_SEARCH
+//#define SELF_EXCLUDING_PRODUCT
+//#define PLANE_POINTS
+//#define NESTED_LIST
+#define INFLUENCER
 
 using namespace std;
 
@@ -47,6 +54,10 @@ int findLowIndex(int arr[], int start, int stop, int val);
 int findHighIndex(int arr[], int start, int stop, int val, int cap);
 double _power(double x, int y);
 double power(double x, int y);
+int maximum(int a,int b);
+int Knapsack(int items,int weight[],int value[],int maxWeight);
+double power(int x, int y);
+vector<int> SelfExcludingProduct(vector<int> &input);
 
 #ifdef PERMUTATIONS_VECTOR
 vector<string> GetPermutations(string str);
@@ -63,6 +74,13 @@ int maxProdSubArray(vector<int> &arr, int& start, int& end);
 bool pairCompare(const pair<int,int> &a, const pair<int,int> &b);
 int findRange(vector<pair<int,int>> &pairList);
 
+int RotatedSearch(vector<int> &list, int key);
+//int RotatedSearch(vector<int> &list, int key, int start, int stop);
+int RotatedSearchForward(vector<int> &list, int key, int start, int stop);
+int RotatedSearchBackward(vector<int> &list, int key, int start, int stop);
+
+int FindInfluencer(vector<vector<int>> &users);
+int FindInfluencer2(vector<vector<int>> &users);
 
 int _tmain(int argc, _TCHAR* argv[])
 {
@@ -75,6 +93,207 @@ int _tmain(int argc, _TCHAR* argv[])
 	double a = power(2,4);
 	double b = power(12,-5);
 	double c = power(3,4);
+#ifdef INFLUENCER
+	
+	int numUsers=5;	
+	vector<vector<int>> users;
+
+	for(int i = 0; i<numUsers; i++)
+	{
+		vector<int> isFollowing;
+		for(int j = 0;j<numUsers;j++)
+		{
+			if(i==j)
+			{
+				isFollowing.push_back(0);
+			}
+			else
+				isFollowing.push_back(1);
+		}
+		users.push_back(isFollowing);
+	}	 
+
+	int isInfluencer = FindInfluencer(users);
+	int isInfluencer2 = FindInfluencer2(users);
+
+	if(isInfluencer == -1)
+		printf("\nNo Influencer found!!\n");
+	else
+		printf("Influencer found in postion: %d\n",isInfluencer);
+
+	int influencer = 3;
+
+	for(int i = 0; i<numUsers;i++)
+	{
+		users[influencer][i] =0;
+	}
+
+	isInfluencer = FindInfluencer(users);
+	isInfluencer2 = FindInfluencer2(users);
+
+	if(isInfluencer == -1)
+		printf("\nNo Influencer found!!\n");
+	else
+		printf("Influencer found in postion: %d\n",isInfluencer);
+
+	influencer = 2;
+	users.clear();
+	for(int i = 0; i<numUsers; i++)
+	{
+		vector<int> isFollowing;
+		for(int j = 0;j<numUsers;j++)
+		{
+			if(i==j)
+			{
+				isFollowing.push_back(0);
+			}
+			else if(j==influencer)
+				isFollowing.push_back(1);
+			else
+				isFollowing.push_back(0);
+		
+		}
+		users.push_back(isFollowing);
+	}	
+
+	isInfluencer = FindInfluencer(users);
+	isInfluencer2 = FindInfluencer2(users);
+
+	if(isInfluencer == -1)
+		printf("\nNo Influencer found!!\n");
+	else
+		printf("Influencer found in postion: %d\n",isInfluencer);
+
+#endif
+
+#ifdef NESTED_LIST
+	NestedList nl;
+
+	nl.addInt(1);
+	nl.addList();
+	nl.At(1)->addInt(2);
+	nl.At(1)->addList();
+	nl.At(1)->addInt(3);
+	nl.addInt(4);
+	nl.At(1)->At(1)->addInt(6);
+	nl.At(1)->At(1)->addInt(2);
+	nl.At(1)->At(1)->addList();
+	nl.At(1)->At(1)->At(2)->addInt(3);
+
+	for(std::vector<NestedList*>::iterator it = nl.begin(); it!=nl.end(); ++it)
+	{
+		NestedList* temp = *it;
+		if(temp->isInteger())
+		{
+			printf("%d ",temp->getInteger());
+		}
+	}
+
+	int test = nl.getSum();
+	int test2 = 0;
+	test2++;
+
+
+#endif
+
+#ifdef PLANE_POINTS
+	Plane plane;
+	plane.addPoint(Point(0,1));
+	plane.addPoint(Point(0,2));
+	plane.addPoint(Point(0,3));
+	plane.addPoint(Point(0,4));
+	plane.addPoint(Point(0,5));
+
+	vector<Point> nearestPoints = plane.findClosestPoints(Point(0,5),2);
+
+	CustomPlane custPlane;
+	custPlane.addPoint(Point(0,1));
+	custPlane.addPoint(Point(0,2));
+	custPlane.addPoint(Point(0,3));
+	custPlane.addPoint(Point(0,4));
+	custPlane.addPoint(Point(0,5));
+
+	vector<Point> nearestPointsCust = custPlane.findClosestPoints(Point(0,5),2);
+
+	int a = 0;
+	a++;
+#endif
+
+#ifdef SELF_EXCLUDING_PRODUCT
+	vector<int> testList;
+	testList.push_back(3);
+	testList.push_back(1);
+	testList.push_back(4);
+	testList.push_back(2);
+
+	vector<int> outList1 = SelfExcludingProduct(testList);
+
+	testList.push_back(0);
+
+	vector<int> outList2 = SelfExcludingProduct(testList);
+
+	testList.push_back(0);
+
+	vector<int> outList3 = SelfExcludingProduct(testList);
+
+	int a = 0;
+	a++;
+
+#endif 
+
+#ifdef ROTATED_SEARCH
+	vector<int> list1;
+	list1.push_back(4);
+	list1.push_back(8);
+	list1.push_back(10);
+	list1.push_back(48);
+	list1.push_back(32);
+	list1.push_back(25);
+	list1.push_back(15);
+
+	int test = RotatedSearch(list1,25);
+	int test2 = RotatedSearch(list1,8);
+	int test3 = RotatedSearch(list1,55);
+	int test4 = RotatedSearch(list1,2);
+	int test5 = RotatedSearch(list1,4);
+	int test6 = RotatedSearch(list1,10);
+	int test7 = RotatedSearch(list1,15);
+	int test8 = RotatedSearch(list1,32);
+	int test9 = RotatedSearch(list1,48);
+
+	vector<int> list2;
+	list2.push_back(15);
+	list2.push_back(10);
+	list2.push_back(8);
+	list2.push_back(4);
+	list2.push_back(25);
+	list2.push_back(32);
+	list2.push_back(48);
+
+	int test10 = RotatedSearch(list2,25);
+	int test11 = RotatedSearch(list2,8);
+	int test12 = RotatedSearch(list2,55);
+	int test13 = RotatedSearch(list2,2);
+	int test14 = RotatedSearch(list2,4);
+	int test15 = RotatedSearch(list2,10);
+	int test16 = RotatedSearch(list2,15);
+	int test17 = RotatedSearch(list2,32);
+	int test18 = RotatedSearch(list2,48);
+
+#endif
+
+#ifdef POWER_TEST
+	while(true)
+	{
+		int x;
+		printf("Please enter x: ");
+		scanf("%d",&x);
+		int y;
+		printf("Please enter y: ");
+		scanf("%d",&y);
+		double test = power(x,y);
+		printf("%d^%d=%f\n",x,y,test);
+	}
 #endif
 
 #ifdef HUNDRED_GAME
@@ -412,6 +631,159 @@ int _tmain(int argc, _TCHAR* argv[])
 	return 0;
 }
 
+int FindInfluencer(vector<vector<int>> &users)
+{
+	for(int i = 0;i<users.size();i++)
+	{
+		bool isInfluencer = true;
+		for(int j= 0;j<users[i].size();j++)
+		{
+			if(i==j)
+			{
+				continue;
+			}
+
+			if(users[i][j] == 1 || users[j][i] == 0)
+			{
+				isInfluencer = false;
+				break;
+			}
+		}
+		if(isInfluencer)
+			return i;
+	}
+	return -1;
+}
+
+int FindInfluencer2(vector<vector<int>> &users)
+{
+	int cand = 0;
+	for(int i = 1; i<users.size(); i++)
+	{
+		if(users[cand][i] == 1 || users[i][cand]==0)
+		{
+			cand = i;
+		}
+	}
+	for(int i = 0;i<users.size();i++)
+	{
+		if(i==cand)
+			continue;
+		if(users[cand][i]==1||users[i][cand]==0)
+			return-1;
+	}
+	return cand;
+}
+
+vector<int> SelfExcludingProduct(vector<int> &input)
+{
+	int numZeros = 0;
+	int product = 1;
+	for(int i = 0; i<input.size();i++)
+	{
+		if(input[i] == 0)
+			numZeros++;
+		else
+			product *= input[i];
+
+		if(numZeros >= 2)
+		{
+			product = 0;
+			break;
+		}
+	}
+
+	vector<int> out;
+	for(int i = 0;i<input.size();i++)
+	{
+		if(input[i] == 0)
+			out.push_back(product);
+		else if(numZeros ==1)
+			out.push_back(0);
+		else
+			out.push_back(product/input[i]);
+	}
+
+	return out;
+}
+
+int RotatedSearch(vector<int> &list, int key)
+{
+	int start = 0;
+	int stop = list.size()-1;
+
+	int mid = (stop-start)/2;
+
+	if(list[mid] == key)
+		return mid;
+	else
+	{
+		if(list[mid+1]<list[stop])
+		{
+			if(key>=list[mid+1])
+				return RotatedSearchForward(list,key,mid+1,stop);
+			else
+				return RotatedSearchBackward(list,key,mid-1,start);
+		}
+		else
+		{
+			if(key<=list[mid-1])
+				return RotatedSearchForward(list,key,start,mid-1);
+			else
+				return RotatedSearchBackward(list,key,stop,mid+1);
+		}
+	}
+}
+
+int RotatedSearchForward(vector<int> &list, int key, int start, int stop)
+{
+	if(start>stop)
+		return -1;
+	if(start<0)
+		return -1;
+	if(stop>list.size()-1)
+		return -1;
+	//if(start==stop && list[start]!=key)
+	//	return -1;
+
+	int mid;
+	mid = (stop-start)/2+start;
+	
+	if(list[mid] == key)
+		return mid;
+	else
+	{
+		if(key>list[mid])
+			return RotatedSearchForward(list,key,mid+1,stop);
+		else
+			return RotatedSearchForward(list,key,start,mid-1);
+	}
+}
+int RotatedSearchBackward(vector<int> &list, int key, int start, int stop)
+{
+	if(stop>start)
+		return -1;
+	if(stop<0)
+		return -1;
+	if(start>list.size()-1)
+		return -1;
+	//if(start==stop && list[start]!=key)
+	//	return -1;
+
+	int mid;
+	mid = start-((start-stop)/2);
+	
+	if(list[mid] == key)
+		return mid;
+	else
+	{
+		if(key>list[mid])
+			return RotatedSearchBackward(list,key,mid-1,stop);
+		else
+			return RotatedSearchForward(list,key,start,mid+1);
+	}
+}
+
 int NumCommonCharsSet(vector<string> words)
 {
 	int count = 0;
@@ -603,6 +975,7 @@ void findIndecies(int arr[], int& low, int& high, int val, int cap)
 	low = findLowIndex(arr,0,cap,val);
 	high = findHighIndex(arr,low,cap,val,cap);
 }
+
 
 int findLowIndex(int arr[], int start, int stop, int val)
 {
