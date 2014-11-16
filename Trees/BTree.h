@@ -31,6 +31,6 @@ private:
 	node* search_tree(node* n, queue<node*>& st, int key);
 	void insert_node(node* n, int key);
 	void printLevels(node* n);
-	node* flipTree(node* n);
+	void flipTree(node* n);
 };
 

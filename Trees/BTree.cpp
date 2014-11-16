@@ -139,7 +139,7 @@ void BST::flipTree()
 	flipTree(root);
 }
 
-node* BST::flipTree(node* n)
+void BST::flipTree(node* n)
 {
 	if(n->left_child != NULL)
 	{
@@ -149,7 +149,7 @@ node* BST::flipTree(node* n)
 	if(n->left_child==NULL)
 	{	
 		root = n;
-		return n;
+		//return n;
 	}
 	else
 	{
@@ -158,7 +158,7 @@ node* BST::flipTree(node* n)
 		n->left_child = NULL;
 		n->right_child = NULL;
 	}
-	return n;
+	//return n;
 }
 
 node* BST::findCommonParent(int val1, int val2)
@@ -186,6 +186,11 @@ queue<node*> BST::search_tree_queue(int key)
 {
 	queue<node*> q;
 	node* n = search_tree(root,q,key);
+	if(n==NULL)
+	{
+		queue<node*> emp;
+		return emp;
+	}
 	return q;
 }
 

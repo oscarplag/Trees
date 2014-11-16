@@ -67,6 +67,7 @@ int findRange(vector<pair<int,int>> &pairList);
 int _tmain(int argc, _TCHAR* argv[])
 {
 	LARGE_INTEGER frequency;
+	::QueryPerformanceFrequency(&frequency);
 	LARGE_INTEGER t1, t2, t3, t4;
 	double elapsedTime;
 
@@ -105,10 +106,25 @@ int _tmain(int argc, _TCHAR* argv[])
 	
 	
 	WordJustifier wj(stringList);
+	WordJustifier wj2(stringList);
+	
 
-	//wj.Justify(10);
+	::QueryPerformanceCounter(&t1);
+	wj2.Justify(8);
+	::QueryPerformanceCounter(&t2);
+	double time = (t2.QuadPart - t1.QuadPart) * 1000.0/ frequency.QuadPart;
+	wj2.print();
+	
+	::QueryPerformanceCounter(&t3);
 	wj.JustifyCustom(8);
+	::QueryPerformanceCounter(&t4);
+	double timeCustom = (t4.QuadPart - t3.QuadPart) * 1000.0/ frequency.QuadPart;
 	wj.print();
+
+	printf("Standard justification takes: %fms\n",time);
+	printf("Custom justification takes: %fms\n",timeCustom);
+
+
 	int temp = 0;
 	temp++;
 
@@ -200,6 +216,22 @@ int _tmain(int argc, _TCHAR* argv[])
 	int stop = 0;
 
 	findIndecies(arr,start,stop,5,10);
+
+
+	int arr2[7];
+	int start2 = 0;
+	int stop2 = 0;
+
+	arr2[0] = 1;
+	arr2[1] = 1;
+	arr2[2] = 2;
+	arr2[3] = 3;
+	arr2[4] = 4;
+	arr2[5] = 4;
+	arr2[6] = 5;
+
+	findIndecies(arr2,start2,stop2,4,7);
+
 #endif
 
 #ifdef COMMONPARENT
@@ -222,14 +254,20 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	tree.printLevels();
 
-	node* test = tree.findCommonParent(7,15);
+	int val1 = 24;
+	int val2 = 40;
+
+	node* test = tree.findCommonParent(val1,val2);
 
 	if(test!=NULL)
-		printf("Common Parent is: %d\n",test->key_val);
+		printf("\nCommon Parent of %d and %d is: %d\n",val1,val2,test->key_val);
+	else
+		printf("\nOne of the values was not found in the BST!\n");
 #endif
 
 #ifdef PERMUTATIONS
 	string temp = "ABCD";
+	//string temp = "ABCC";
 
 #ifdef PERMUTATIONS_VECTOR
 	vector<string> tempArr = GetPermutations(temp);
@@ -285,7 +323,6 @@ int _tmain(int argc, _TCHAR* argv[])
 #endif
 
 #ifdef GREY_CODE
-	::QueryPerformanceFrequency(&frequency);
 	::QueryPerformanceCounter(&t1);
 	vector<string> grey1 = GetGreyCodeRecurse(10);
 	::QueryPerformanceCounter(&t2);
@@ -358,9 +395,6 @@ int _tmain(int argc, _TCHAR* argv[])
 	temp.push_back(temp2);
 	temp.push_back(temp3);
 
-
-	
-	::QueryPerformanceFrequency(&frequency);
 	::QueryPerformanceCounter(&t1);
 	int answer = NumCommonCharsCustom(temp);
 	::QueryPerformanceCounter(&t2);
@@ -772,35 +806,28 @@ int Knapsack(int items,int weight[],int value[],int maxWeight)
                         dp[iter][w] = dp[iter-1][w]; // If I do not take this item 
                         if(w-weight[iter] >=0)
                         {
-								if(iter ==2 && w==2)
-								{
-									int a = 0;
-									a++;
-								}
-                                // suppose if I take this item 
-                                dp[iter][w] = max(dp[iter][w] , dp[iter-1][w-weight[iter]]+value[iter]);
-								printf("i: %d, w: %d, max: %d\n",iter,w,dp[iter][w]);
+							// suppose if I take this item 
+							dp[iter][w] = max(dp[iter][w] , dp[iter-1][w-weight[iter]]+value[iter]);								
                         }
+						printf("i: %d, w: %d, max: %d\n",iter,w,dp[iter][w]);
                 }
 
         }
         return dp[items][maxWeight];
 }
-int _tmain(int argc, _TCHAR* argv[])
+
+double power(int x, int y)
 {
-        int items = 3;
-        //scanf("%d",&items);
-        int* weight = new int [items+1];
-		int* value = new int [items+1];
-        int iter;
-        for(iter=1;iter<=items;iter++)
-        {
-			weight[iter] = iter;
-			value[iter] = (int)pow((float)2,iter);
-               // scanf("%d%d",&weight[iter],&value[iter]);
-        }
-        int maxWeight;
-        scanf("%d",&maxWeight);
-        printf("Max value attained can be %d\n",Knapsack(items,weight,value,maxWeight));
+	if(y==0)
+		return 1;
+	else if(y==1)
+		return x;
+
+	double ans = power(x,y/2);
+	ans = ans*ans;
+
+	if(y%2!=0)
+		ans *=x;
+
+	return ans;
 }
-*/

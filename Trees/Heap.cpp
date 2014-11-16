@@ -2,6 +2,7 @@
 #include "Heap.h"
 #include <queue>
 #include <iostream>
+#include <math.h>
 
 Heap::Heap(int minMax)
 {
@@ -18,7 +19,7 @@ Heap::~Heap(void)
 
 int Heap::top()
 {
-	return arr[0];
+	return arr[1];
 }
 
 int Heap::pop()
@@ -174,7 +175,12 @@ void Heap::print_heap()
 	int size = arr.size();
 	queue<int> myQueue;
 
+	float queueDepth = log((float)size)/log((float)2);
+	//int maxDepth = (int)queueDepth;
+
 	myQueue.push(1);
+
+	int depthCounter = 0;
 
 	while(!myQueue.empty())
 	{
@@ -184,13 +190,21 @@ void Heap::print_heap()
 			tempQueue.push(myQueue.front());
 			myQueue.pop();
 		}
-
-		while(!tempQueue.empty())
+		/*
+		for(int i = depthCounter;i<queueDepth-1;i++)
 		{
+				cout << "   ";
+		}
+		cout << " ";*/
+
+		depthCounter++;
+		while(!tempQueue.empty())
+		{			
 			int temp = tempQueue.front();
 			tempQueue.pop();
 
-			cout << arr[temp] << " ";
+			printf("%3d ",arr[temp]);
+			//cout << arr[temp] << " ";
 
 			int pos = 2*temp;
 			if(pos<size)
