@@ -10,6 +10,7 @@
 #include <Windows.h>
 #include <iostream>
 #include <stack>
+#include <regex>
 #include "Heap.h"
 #include <set>
 #include <algorithm>
@@ -19,6 +20,7 @@
 #include "PickNumber.h"
 #include "Plane.h"
 #include "NestedList.h"
+#include "boost/lexical_cast.hpp"
 
 
 //#define INDECIES
@@ -39,7 +41,9 @@
 //#define SELF_EXCLUDING_PRODUCT
 //#define PLANE_POINTS
 //#define NESTED_LIST
-#define INFLUENCER
+//#define INFLUENCER
+//#define IS_NUM
+#define PALINDROME
 
 using namespace std;
 
@@ -52,11 +56,10 @@ vector<string> GetGreyCodeRecurse(int n, vector<string> arr);
 void findIndecies(int arr[], int& low, int& high, int val, int cap);
 int findLowIndex(int arr[], int start, int stop, int val);
 int findHighIndex(int arr[], int start, int stop, int val, int cap);
-double _power(double x, int y);
-double power(double x, int y);
 int maximum(int a,int b);
 int Knapsack(int items,int weight[],int value[],int maxWeight);
 double power(int x, int y);
+double _power(int x, int y);
 vector<int> SelfExcludingProduct(vector<int> &input);
 
 #ifdef PERMUTATIONS_VECTOR
@@ -82,6 +85,13 @@ int RotatedSearchBackward(vector<int> &list, int key, int start, int stop);
 int FindInfluencer(vector<vector<int>> &users);
 int FindInfluencer2(vector<vector<int>> &users);
 
+bool isNum(string &str);
+bool isNumBoost(string &str);
+bool isNumRegEx(string &str);
+
+int maxPalindrome(string &str);
+int _maxPalindrome(string &str, int** dp, int start, int end);
+
 int _tmain(int argc, _TCHAR* argv[])
 {
 	LARGE_INTEGER frequency;
@@ -89,10 +99,42 @@ int _tmain(int argc, _TCHAR* argv[])
 	LARGE_INTEGER t1, t2, t3, t4;
 	double elapsedTime;
 
+#ifdef PALINDROME
+	string str1("habobeh");
+
+	int test = maxPalindrome(str1);
+	cout << str1 << ": max palindrome length is " << test << "." <<endl;
+
+	string str2("habobah");
+
+	int test2 = maxPalindrome(str2);
+	cout << str2 << ": max palindrome length is " << test2 << "." <<endl;
+
+	string str3("habovbah");
+
+	int test3 = maxPalindrome(str3);
+	cout << str3 << ": max palindrome length is " << test3 << "." <<endl;
+#endif
+
+#ifdef IS_NUM
+
+	isNumRegEx(string("80.4536"));
+	isNumRegEx(string("-75.65"));
+	isNumRegEx(string("69"));
+	isNumRegEx(string("a123123"));
+	isNumRegEx(string("0.9876.08"));
+	isNumRegEx(string(".982324"));
+	isNumRegEx(string("1.234asd"));
+
+
+#endif
+
 #ifdef POWER
 	double a = power(2,4);
 	double b = power(12,-5);
 	double c = power(3,4);
+#endif
+
 #ifdef INFLUENCER
 	
 	int numUsers=5;	
@@ -631,6 +673,105 @@ int _tmain(int argc, _TCHAR* argv[])
 	return 0;
 }
 
+int maxPalindrome(string &str)
+{
+	int size = str.length();
+	int end = size-1;
+
+	int** dp = new int*[size];
+	for(int i = 0; i<size;i++)
+	{
+		dp[i] = new int[size];
+		std::fill_n(dp[i],size,-1);
+		dp[i][i] = 1;
+	}
+
+	int val = _maxPalindrome(str,dp,0,end);
+
+	for(int i = 0; i<size;i++)
+	{
+		delete [] dp[i];
+	}
+	delete [] dp;
+
+	return val;
+}
+int _maxPalindrome(string &str, int** dp, int start, int end)
+{
+	if(end<start)
+		return 0;
+	if(dp[start][end]!=-1)
+		return dp[start][end];
+	if(str[start] == str[end])
+		return 2+ _maxPalindrome(str,dp,start+1,end-1);
+	else
+		return max(_maxPalindrome(str,dp,start+1,end),_maxPalindrome(str,dp,start,end-1));
+}
+
+bool isNum(string &str)
+{
+	std::string::iterator it = str.begin();
+	int numDecimal = 0;
+
+	if(*it == '.')
+	{
+		numDecimal++;
+	}
+	else if(*it!='-' && !isdigit(*it) )
+	{
+		cout << str << " is not a number" << endl;
+		return false;
+	}
+	it++;	
+	for(it; it!= str.end();++it)
+	{
+		if(*it == '.')
+			numDecimal++;
+		else if (!isdigit(*it))
+		{
+			cout << str << " is not a number" << endl;
+			return false;
+		}
+		if(numDecimal >1)
+		{
+			cout << str << " is not a number" << endl;
+			return false;
+		}
+	}
+	cout << str << " is a number!" << endl;
+	return true;
+}
+
+bool isNumBoost(string &str)
+{
+	try
+	{
+		double test = boost::lexical_cast<double,string>(str);
+		cout << str << " is a number!!" << endl;
+		return true;
+	}
+	catch (exception ex)
+	{
+		cout << str << " is not a number!" << endl;
+		return false;
+	}
+}
+
+bool isNumRegEx(string &str)
+{
+	if(std::regex_match(str,std::regex("(^-|\\.)?\\d+(\\.)?\\d*")))
+	{
+		cout << str << " is a number!" << endl;
+		return true;
+	}
+	else
+	{
+		cout << str << " is not a number!" << endl;
+		return false;
+	}
+}
+
+
 int FindInfluencer(vector<vector<int>> &users)
 {
 	for(int i = 0;i<users.size();i++)
@@ -1131,31 +1272,6 @@ int findRange(vector<pair<int,int>> &pairList)
 	return range;
 }
 
-double _power(double x, int y)
-{
-	if(y==0) return 1;
-
-	double t = _power(x, y/2);
-	t *= t;
-
-	int val = ((y%2)?x:1);
-
-	return t * ( (y%2)?x:1 );
-}
-
-double power(double x, int y)
-{
-	if(y<0) return (1/_power(x,y));
-	else return _power(x,y);
-}
-
-/*
-#include<stdio.h>
-#include<cmath>
-int max(int a,int b)
-{
-        return a>b?a:b;
-}
 int Knapsack(int items,int weight[],int value[],int maxWeight)
 {
 		int** dp = new int* [items+1];
@@ -1190,6 +1306,13 @@ int Knapsack(int items,int weight[],int value[],int maxWeight)
 }
 
 double power(int x, int y)
+{
+	if(y<0)
+		return (1/_power(x,y));
+	else
+		return _power(x,y);
+}
+double _power(int x, int y)
 {
 	if(y==0)
 		return 1;
