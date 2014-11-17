@@ -80,6 +80,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(BOOST);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -137,6 +138,8 @@
     <ClInclude Include="BTree.h" />
     <ClInclude Include="CustomHeap.h" />
     <ClInclude Include="Heap.h" />
+    <ClInclude Include="HundredGame.h" />
+    <ClInclude Include="PickNumber.h" />
     <ClInclude Include="NestedList.h" />
     <ClInclude Include="Plane.h" />
     <ClInclude Include="Point.h" />
@@ -148,6 +151,8 @@
     <ClCompile Include="BTree.cpp" />
     <ClCompile Include="CustomHeap.cpp" />
     <ClCompile Include="Heap.cpp" />
+    <ClCompile Include="HundredGame.cpp" />
+    <ClCompile Include="PickNumber.cpp" />
     <ClCompile Include="NestedList.cpp" />
     <ClCompile Include="Plane.cpp" />
     <ClCompile Include="stdafx.cpp">
