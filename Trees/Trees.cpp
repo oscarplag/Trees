@@ -21,6 +21,7 @@
 #include "Plane.h"
 #include "NestedList.h"
 #include "boost/lexical_cast.hpp"
+#include <boost/algorithm/string.hpp>
 
 
 //#define INDECIES
@@ -28,7 +29,7 @@
 //#define PERMUTATIONS
 //#define PERMUTATIONS_VECTOR
 //#define HEAP
-//#define GREY_CODE
+#define GREY_CODE
 //#define BST_TEST
 //#define COMMON_LETTER
 //#define MAX_SUMSUBARRAY
@@ -43,7 +44,8 @@
 //#define NESTED_LIST
 //#define INFLUENCER
 //#define IS_NUM
-#define PALINDROME
+//#define PALINDROME
+//#define SPLIT_WORDS
 
 
 using namespace std;
@@ -94,12 +96,26 @@ bool isNumRegEx(string &str);
 int maxPalindrome(string &str);
 int _maxPalindrome(string &str, int** dp, int start, int end);
 
+int wordDistance(string sentence, string str1, string str2); 
+
 int _tmain(int argc, _TCHAR* argv[])
 {
 	LARGE_INTEGER frequency;
 	::QueryPerformanceFrequency(&frequency);
 	LARGE_INTEGER t1, t2, t3, t4;
 	double elapsedTime;
+
+#ifdef SPLIT_WORDS
+	string sent("The quick brown fox jumped over");
+	int test = wordDistance(sent,string("QUICK"),string("jumped"));
+	string sent2("The quick quick brown fox jumped over");
+	int test2 = wordDistance(sent2,string("QuIcK"),string("brown"));
+	int test3 = wordDistance(sent2,string("brown"),string("quick"));
+	int test4 = wordDistance(sent2,string("brown"),string("brown"));
+	int test5 = wordDistance(sent2,string("brown"),string("bla"));
+	int a = 0;
+	a++;
+#endif
 
 #ifdef REPEAT_SUBSTRING
 	
@@ -112,6 +128,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	findRepeatSubStrings(str1,3); 
 	cout << endl << "Substrings of length " << length2 <<" for string \"" << str2 << "\"  are: " << endl;
 	findRepeatSubStrings(str2,2);
+#endif
 
 #ifdef PALINDROME
 	string str1("habobeh");
@@ -138,6 +155,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	isNumRegEx(string("a123123"));
 	isNumRegEx(string("0.9876.08"));
 	isNumRegEx(string(".982324"));
+	isNumRegEx(string(".982.324"));
 	isNumRegEx(string("1.234asd"));
 
 
@@ -687,6 +705,59 @@ int _tmain(int argc, _TCHAR* argv[])
 	return 0;
 }
 
+int wordDistance(string sentence, string str1, string str2)
+{
+	std::transform(str1.begin(),str1.end(),str1.begin(),tolower);
+	std::transform(str2.begin(),str2.end(),str2.begin(),tolower);
+
+	if(str1.compare(str2)==0)
+		return 0;
+
+	vector<string> splitStrings;
+	//boost::split(splitStrings,sentence,boost::is_any_of("\t "));
+	std::stringstream ss(sentence);
+	std::string item;
+	while(std::getline(ss,item,' '))
+	{
+		splitStrings.push_back(item);
+	}
+
+
+	int aIndex = -1;
+	int bIndex = -1;
+
+	int minDistance = INT_MAX;
+
+	std::vector<string>::iterator start = splitStrings.begin();
+
+	for(std::vector<string>::iterator it= splitStrings.begin(); it!= splitStrings.end();++it)
+	{
+		std::transform(it->begin(),it->end(),it->begin(),tolower);
+
+		if(str1.compare(*it)==0)
+		{
+			aIndex = it-start;
+		}
+		else if(str2.compare(*it)==0)
+		{
+			bIndex = it-start;
+		}
+		if(aIndex>0 && bIndex>0)
+		{
+			int dist = bIndex-aIndex;
+			if(dist<minDistance && dist>0)
+			{
+				minDistance = bIndex-aIndex;
+			}
+		}		
+	}
+
+	if(aIndex==-1 || bIndex == -1 || minDistance == 100000)
+		return -1;
+	else
+		return minDistance;
+}
+
 int maxPalindrome(string &str)
 {
 	int size = str.length();
@@ -717,9 +788,11 @@ int _maxPalindrome(string &str, int** dp, int start, int end)
 	if(dp[start][end]!=-1)
 		return dp[start][end];
 	if(str[start] == str[end])
-		return 2+ _maxPalindrome(str,dp,start+1,end-1);
+		dp[start][end]= 2+ _maxPalindrome(str,dp,start+1,end-1);
 	else
-		return max(_maxPalindrome(str,dp,start+1,end),_maxPalindrome(str,dp,start,end-1));
+		dp[start][end] = max(_maxPalindrome(str,dp,start+1,end),_maxPalindrome(str,dp,start,end-1));
+
+	return dp[start][end];
 }
 
 bool isNum(string &str)
@@ -773,7 +846,18 @@ bool isNumBoost(string &str)
 
 bool isNumRegEx(string &str)
 {
-	if(std::regex_match(str,std::regex("(^-|\\.)?\\d+(\\.)?\\d*")))
+	//if(std::regex_match(str,std::regex("(?=(^\\.)\\d+|\\d*)")))
+	//{
+	//	cout << str << " is a number!" << endl;
+	//	return true;
+	//}
+	//if(std::regex_match(str,std::regex("(^-|\\.)?\\d+(\\.)?\\d*")))
+	if(std::regex_match(str,std::regex("(^-)?\\d+(\\.)?\\d*")))
+	{
+		cout << str << " is a number!" << endl;
+		return true;
+	}
+	else if(std::regex_match(str,std::regex("(^\\.)?\\d+")))
 	{
 		cout << str << " is a number!" << endl;
 		return true;
@@ -784,7 +868,6 @@ bool isNumRegEx(string &str)
 		return false;
 	}
 }
-
 
 int FindInfluencer(vector<vector<int>> &users)
 {
@@ -1018,6 +1101,7 @@ int NumberOfSetBits(int val)
 vector<string> GetGreyCode(int n)
 {
 	vector<string> arr;
+	arr.reserve(1<<n);
 	arr.push_back("0");
 	arr.push_back("1");
 	
@@ -1027,7 +1111,7 @@ vector<string> GetGreyCode(int n)
 
 		for(int j = curSize-1; j>=0;j--)
 		{
-			arr.push_back("1"+arr[j]);
+			arr.push_back("1"+arr[j]);			
 			arr[j] = "0" + arr[j];
 		}
 	}
