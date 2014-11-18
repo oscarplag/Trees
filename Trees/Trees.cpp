@@ -15,11 +15,13 @@
 #include <set>
 #include <algorithm>
 #include <utility>
+#include <map>
 #include "WordJustifier.h"
 #include "HundredGame.h"
 #include "PickNumber.h"
 #include "Plane.h"
 #include "NestedList.h"
+#include "WordDistance.h"
 #include "boost/lexical_cast.hpp"
 #include <boost/algorithm/string.hpp>
 
@@ -46,6 +48,8 @@
 //#define IS_NUM
 //#define PALINDROME
 //#define SPLIT_WORDS
+#define WORD_DIST
+
 
 
 using namespace std;
@@ -104,6 +108,25 @@ int _tmain(int argc, _TCHAR* argv[])
 	::QueryPerformanceFrequency(&frequency);
 	LARGE_INTEGER t1, t2, t3, t4;
 	double elapsedTime;
+
+#ifdef WORD_DIST
+	vector<string> stringList = vector<string>();
+	stringList.push_back("the");
+	stringList.push_back("the");
+	stringList.push_back("quick");
+	stringList.push_back("brown");
+	stringList.push_back("brown");
+	stringList.push_back("fox");
+	stringList.push_back("jumped");
+	stringList.push_back("over");
+	stringList.push_back("the");
+
+	WordDistance wd(stringList);
+
+	int dist1 = wd.getDistance(string("the"),string("jumped"));
+	int dist2 = wd.getDistance(string("the"),string("brown"));
+
+#endif
 
 #ifdef SPLIT_WORDS
 	string sent("The quick brown fox jumped over");
@@ -1177,7 +1200,6 @@ set<string> GetPermutations(string str)
 	GetPermutations(str,0,strArr);
 	return strArr;
 }
-
 void GetPermutations(string str,int pos, set<string>& strArr)
 {
 	if(pos == str.size()-1)
@@ -1201,7 +1223,6 @@ void GetPermutations(string str,int pos, set<string>& strArr)
 	return;
 }
 #endif
-
 void swap(string& str, int i, int j)
 {
 	char tmp = str[i];
@@ -1214,8 +1235,6 @@ void findIndecies(int arr[], int& low, int& high, int val, int cap)
 	low = findLowIndex(arr,0,cap,val);
 	high = findHighIndex(arr,low,cap,val,cap);
 }
-
-
 int findLowIndex(int arr[], int start, int stop, int val)
 {
 	if(start<0 || stop<start)

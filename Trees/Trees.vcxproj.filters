@@ -11,6 +11,7 @@
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="Trees.cpp" />
     <ClCompile Include="WordJustifier.cpp" />
+    <ClCompile Include="WordDistance.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BTree.h" />
@@ -24,6 +25,7 @@
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="WordJustifier.h" />
+    <ClInclude Include="WordDistance.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
