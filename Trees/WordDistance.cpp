@@ -1,11 +1,12 @@
 #include "StdAfx.h"
 #include "WordDistance.h"
-
+#include <iostream>
 
 WordDistance::WordDistance(vector<string> words)
 {
 	for(std::vector<string>::iterator it = words.begin();it!=words.end();++it)
 	{
+		indeceisMulti.insert(pair<string, int>(*it, it - words.begin()));
 		if(indecies.count(*it)!=0)
 		{
 			vector<int>* temp = indecies[*it];
@@ -37,9 +38,9 @@ int WordDistance::getDistance(string &str1, string &str2)
 	vector<int>* indecies1 = indecies[str1];
 	vector<int>* indecies2 = indecies[str2];
 	std::vector<int>::iterator it1 = indecies1->begin();
-	std::vector<int>::iterator it2 = indecies2->begin();
+	std::vector<int>::iterator it2 = indecies2->begin();	
 
-	for(it1,it2;it1!=indecies1->end()&&it2!=indecies2->end();)
+	while(it1!=indecies1->end()&&it2!=indecies2->end())
 	{
 		int distance = abs(*it1-*it2);
 		if(distance<minDist)
@@ -57,18 +58,44 @@ int WordDistance::getDistance(string &str1, string &str2)
 		else
 			it1++;
 	}
-	
 
-	/*
-	for(std::vector<int>::iterator it = indecies[str1]->begin();it!=indecies[str1]->end();++it)
+	return minDist;
+}
+
+int WordDistance::getDistanceMulti(string &str1, string& str2)
+{
+	if (indecies.count(str1) == 0)
+		return -1;
+	if (indecies.count(str2) == 0)
+		return -1;
+
+	int minDist = INT_MAX;
+
+	pair<std::multimap<string, int>::iterator, std::multimap<string, int>::iterator> mIts2 = indeceisMulti.equal_range(str2);
+	pair<std::multimap<string, int>::iterator, std::multimap<string, int>::iterator> mIts1 = indeceisMulti.equal_range(str1);
+	multimap<string, int>::iterator mIt1 = mIts1.first;
+	multimap<string, int>::iterator mIt2 = mIts2.first;	
+
+	while (mIt1 != mIts1.second && mIt2 != mIts2.second)
 	{
-		int index1 = *it;
-		for(std::vector<int>::iterator it2 = indecies[str2]->begin();it2!=indecies[str2]->end();++it2)
+		int distance = abs(mIt1->second - mIt2->second);
+		if (distance < minDist)
+			minDist = distance;
+
+		if (next(mIt2) != mIts2.second)
 		{
-			int dist = abs(*it-*it2);
-			if(dist<minDist)
-				minDist = dist;
+			int next = abs(mIt1->second - (++mIt2)->second);
+			if (next > distance)
+			{
+				mIt2--;
+				mIt1++;
+			}
+			else
+				mIt2++;
 		}
-	}*/
+		else
+			mIt1++;
+	}
+
 	return minDist;
 }

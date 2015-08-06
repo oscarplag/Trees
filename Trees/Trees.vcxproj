@@ -135,6 +135,7 @@
     <None Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BinarySearchTree.h" />
     <ClInclude Include="BTree.h" />
     <ClInclude Include="CustomHeap.h" />
     <ClInclude Include="Heap.h" />
@@ -149,6 +150,7 @@
     <ClInclude Include="WordJustifier.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BinarySearchTree.cpp" />
     <ClCompile Include="BTree.cpp" />
     <ClCompile Include="CustomHeap.cpp" />
     <ClCompile Include="Heap.cpp" />

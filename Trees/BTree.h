@@ -9,6 +9,24 @@ struct node
 	node* left_child;
 	node* right_child;
 	int key_val;
+	node(int key)
+	{
+		key_val = key;
+		left_child = NULL;
+		right_child = NULL;
+	}
+	node(int key, node* left, node* right)
+	{
+		key_val = key;
+		left_child = left;
+		right_child = right;
+	}
+	node()
+	{
+		key_val = 0;
+		left_child = NULL;
+		right_child = NULL;
+	}
 };
 
 class BST

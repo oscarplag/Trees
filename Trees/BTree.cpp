@@ -37,19 +37,16 @@ node* BST::search_tree(int key)
 
 node* BST::search_tree(node* n, int key)
 {
+	if (n == NULL)
+		return NULL;
+
 	if(key<n->key_val)
 	{
-		if(n->left_child == NULL)
-			return NULL;
-		else
-			return search_tree(n->left_child,key);
+		return search_tree(n->left_child,key);
 	}
 	else if(key>n->key_val)
 	{
-		if(n->right_child == NULL)
-			return NULL;
-		else
-			return search_tree(n->right_child,key);
+		return search_tree(n->right_child,key);
 	}
 	else
 		return n;
@@ -106,13 +103,13 @@ void BST::printLevels()
 
 void BST::printLevels(node* n)
 {
-	std::queue<node*> myQueue;
+	std::queue<node*,std::list<node*>> myQueue;
 
 	myQueue.push(n);
 
 	while(!myQueue.empty())
 	{
-		std::list<node*> myList;
+		std::queue<node*, std::list<node*>> myList;
 
 		while(!myQueue.empty())
 		{
@@ -120,16 +117,16 @@ void BST::printLevels(node* n)
 			myQueue.pop();
 			printf("%d ", myNode->key_val);
 			if(myNode->left_child != NULL)
-				myList.push_back(myNode->left_child);
+				myList.push(myNode->left_child);
 			if(myNode->right_child != NULL)
-				myList.push_back(myNode->right_child);
+				myList.push(myNode->right_child);
 		}
 		printf("\n");
 
 		while(!myList.empty())
 		{
 			myQueue.push(myList.front());
-			myList.pop_front();
+			myList.pop();
 		}
 	}
 }

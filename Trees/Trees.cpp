@@ -24,14 +24,15 @@
 #include "WordDistance.h"
 #include "boost/lexical_cast.hpp"
 #include <boost/algorithm/string.hpp>
+#include "BinarySearchTree.h"
 
 
 //#define INDECIES
 //#define COMMONPARENT
 //#define PERMUTATIONS
 //#define PERMUTATIONS_VECTOR
-//#define HEAP
-#define GREY_CODE
+#define HEAP
+//#define GREY_CODE
 //#define BST_TEST
 //#define COMMON_LETTER
 //#define MAX_SUMSUBARRAY
@@ -48,8 +49,8 @@
 //#define IS_NUM
 //#define PALINDROME
 //#define SPLIT_WORDS
-#define WORD_DIST
-
+//#define WORD_DIST
+//#define WORD_JUSTIFIER
 
 
 using namespace std;
@@ -123,8 +124,12 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	WordDistance wd(stringList);
 
-	int dist1 = wd.getDistance(string("the"),string("jumped"));
+	int dist1 = wd.getDistance(string("quick"),string("jumped"));
+	int dist1Multi = wd.getDistanceMulti(string("quick"), string("jumped"));
 	int dist2 = wd.getDistance(string("the"),string("brown"));
+	int dist2Multi = wd.getDistanceMulti(string("the"), string("brown"));
+	int a = 0;
+	a++;
 
 #endif
 
@@ -551,6 +556,38 @@ int _tmain(int argc, _TCHAR* argv[])
 #endif
 
 #ifdef COMMONPARENT
+	if (true)
+	{
+		BinarySearchTree bsTree;
+		bsTree.Insert(20);
+		bsTree.Insert(30);
+		bsTree.Insert(10);
+		bsTree.Insert(35);
+		bsTree.Insert(25);
+		bsTree.Insert(15);
+		bsTree.Insert(5);
+		bsTree.Insert(3);
+		bsTree.Insert(7);
+		bsTree.Insert(12);
+		bsTree.Insert(17);
+		bsTree.Insert(24);
+		bsTree.Insert(28);
+		bsTree.Insert(34);
+		bsTree.Insert(40);
+
+		bsTree.PrintLevels();
+
+		int val1 = 34;
+		int val2 = 401;
+
+		node* test = bsTree.FindCommonParent(val1, val2);
+
+		if (test != NULL)
+			cout << "Common Parent to " << val1 << " and " << val2 << " is: " << test->key_val << endl << endl;
+		else
+			cout << "At least one of the values was not found in the Binary Search Tree!" << endl << endl;;
+	}
+
 	BST tree;
 	tree.insert_node(20);
 	tree.insert_node(30);
@@ -570,8 +607,8 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	tree.printLevels();
 
-	int val1 = 24;
-	int val2 = 40;
+	int val1 = 34;
+	int val2 = 401;
 
 	node* test = tree.findCommonParent(val1,val2);
 
@@ -668,6 +705,36 @@ int _tmain(int argc, _TCHAR* argv[])
 #endif
 
 #ifdef BST_TEST
+	if (true)
+	{
+		BinarySearchTree bTree;
+		bTree.Insert(10);
+		bTree.Insert(8);
+		bTree.Insert(11);
+		bTree.Insert(9);
+		bTree.Insert(6);
+		bTree.Insert(7);
+		bTree.Insert(5);
+
+		node* n = bTree.Search(8);
+		cout << "n left child value: " << n->left_child->key_val << endl;
+		cout << "n right child value: " << n->right_child->key_val << endl;
+
+		node* n2 = bTree.Search(121);
+
+		if (n2 == NULL)
+			cout << "N2 not found!" << endl;
+		else
+			cout << "N2 key value: %d\n" << endl;
+
+		cout << "Original Tree:" << endl;
+		bTree.PrintLevels();
+
+		bTree.FlipTree();
+		cout << "Flipped Tree:" << endl;
+		bTree.PrintLevels();
+	}
+
 	BST tree = BST();
 	tree.insert_node(10);
 	tree.insert_node(8);
@@ -1217,7 +1284,7 @@ void GetPermutations(string str,int pos, set<string>& strArr)
 		{
 			swap(str,pos,i);
 			GetPermutations(str,pos+1,strArr);
-			swap(str,pos,i);
+			//swap(str,pos,i);
 		}
 	}
 	return;
