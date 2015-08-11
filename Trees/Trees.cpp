@@ -31,7 +31,7 @@
 //#define COMMONPARENT
 //#define PERMUTATIONS
 //#define PERMUTATIONS_VECTOR
-#define HEAP
+//#define HEAP
 //#define GREY_CODE
 //#define BST_TEST
 //#define COMMON_LETTER
@@ -43,7 +43,7 @@
 //#define POWER_TEST
 //#define ROTATED_SEARCH
 //#define SELF_EXCLUDING_PRODUCT
-//#define PLANE_POINTS
+#define PLANE_POINTS
 //#define NESTED_LIST
 //#define INFLUENCER
 //#define IS_NUM
@@ -68,6 +68,8 @@ int maximum(int a,int b);
 int Knapsack(int items,int weight[],int value[],int maxWeight);
 double power(int x, int y);
 double _power(int x, int y);
+double powerNew(int x, int y);
+double _powerNew(int x, int y);
 vector<int> SelfExcludingProduct(vector<int> &input);
 
 #ifdef PERMUTATIONS_VECTOR
@@ -81,6 +83,7 @@ void swap(string& str, int i, int j);
 
 int maxSumSubArray(vector<int> &arr, int& start, int& end);
 int maxProdSubArray(vector<int> &arr, int& start, int& end);
+int maxProdSubArrayCustom(vector<int> &arr, int& start, int& end);
 
 bool pairCompare(const pair<int,int> &a, const pair<int,int> &b);
 int findRange(vector<pair<int,int>> &pairList);
@@ -300,19 +303,19 @@ int _tmain(int argc, _TCHAR* argv[])
 
 #ifdef PLANE_POINTS
 	Plane plane;
-	plane.addPoint(Point(0,1));
-	plane.addPoint(Point(0,2));
-	plane.addPoint(Point(0,3));
-	plane.addPoint(Point(0,4));
+	plane.addPoint(Point(1,1));
+	plane.addPoint(Point(2,2));
+	plane.addPoint(Point(3,3));
+	plane.addPoint(Point(4,4));
 	plane.addPoint(Point(0,5));
 
 	vector<Point> nearestPoints = plane.findClosestPoints(Point(0,5),2);
 
 	CustomPlane custPlane;
-	custPlane.addPoint(Point(0,1));
-	custPlane.addPoint(Point(0,2));
-	custPlane.addPoint(Point(0,3));
-	custPlane.addPoint(Point(0,4));
+	custPlane.addPoint(Point(1,1));
+	custPlane.addPoint(Point(2,2));
+	custPlane.addPoint(Point(3,3));
+	custPlane.addPoint(Point(4,4));
 	custPlane.addPoint(Point(0,5));
 
 	vector<Point> nearestPointsCust = custPlane.findClosestPoints(Point(0,5),2);
@@ -394,7 +397,9 @@ int _tmain(int argc, _TCHAR* argv[])
 		printf("Please enter y: ");
 		scanf("%d",&y);
 		double test = power(x,y);
-		printf("%d^%d=%f\n",x,y,test);
+		double test2 = powerNew(x, y);
+		printf("Old: %d^%d=%f\n",x,y,test);
+		printf("New: %d^%d=%f\n", x, y, test2);
 	}
 #endif
 
@@ -503,18 +508,23 @@ int _tmain(int argc, _TCHAR* argv[])
 	//arr.push_back(-2);
 	//arr.push_back(-40);
 	//arr.push_back(-5);
-	arr.push_back(-9);
-	arr.push_back(-8);
 	arr.push_back(-1);
-	arr.push_back(4);
-	arr.push_back(9);
-	arr.push_back(-9);
-	arr.push_back(-2);
+	arr.push_back(0);
+	arr.push_back(1);
+	arr.push_back(0);
+	//arr.push_back(-9);
+	//arr.push_back(-2);
 
 	int start = 0;
 	int end = 0;
 
 	int max = maxProdSubArray(arr,start,end);
+
+
+	int customStart = 0;
+	int customEnd = 0;
+	int customMax = maxProdSubArrayCustom(arr, customStart, customEnd);
+
 	int temp = 0;
 	temp++;
 #endif
@@ -793,6 +803,29 @@ int _tmain(int argc, _TCHAR* argv[])
 #endif
 
 	return 0;
+}
+
+double powerNew(int x, int y)
+{
+	if (y < 0)
+		return 1 / _powerNew(x, -1 * y);
+	else
+		return _powerNew(x, y);
+}
+
+double _powerNew(int x, int y)
+{
+	if (y == 0)
+		return 1;
+	else if (y == 1)
+		return x;
+	else if (y % 2 != 0)
+		return x * powerNew(x, y - 1);
+	else
+	{
+		double temp = power(x, y / 2);
+		return temp*temp;
+	}
 }
 
 int wordDistance(string sentence, string str1, string str2)
@@ -1366,17 +1399,14 @@ int maxProdSubArray(vector<int> &arr, int& start, int& end)
 	int startNeg = 0;
 	int startPos = 0;
 	
-	vector<int> maxPos;
-	vector<int> minNeg;
-
-	maxPos.push_back(arr[0]);
-	minNeg.push_back(arr[0]);
+	int maxPos = arr[0];
+	int minNeg = arr[0];
 
 	for(int i = 1; i<arr.size();i++)
 	{
 		int val = arr[i];
-		int valPos = val*maxPos[i-1];
-		int valNeg = val*minNeg[i-1];	
+		int valPos = val*maxPos;
+		int valNeg = val*minNeg;	
 		
 		curMax = max(max(val,valPos),valNeg);
 		if(curMax>max)
@@ -1403,11 +1433,65 @@ int maxProdSubArray(vector<int> &arr, int& start, int& end)
 		else if(curMin == valPos)
 			startNeg = initStartPos;
 
-		maxPos.push_back(curMax);
-		minNeg.push_back(curMin);
+		maxPos = curMax;
+		minNeg = curMin;
 	}
 		
 	return max;
+}
+
+int maxProdSubArrayCustom(vector<int> &arr, int& start, int& end)
+{
+	int max = arr[0];
+	int curMax = max;
+	int curMin = max;
+	int maxEndingHere = arr[0];
+	int minEndingHere = arr[0];
+	start = 0;
+	end = 0;
+	int startPos = 0;
+	int startNeg = 0;
+	std::vector<int>::iterator it = arr.begin();
+
+	for (++it; it != arr.end(); ++it)
+	{
+		maxEndingHere *= *it;
+		minEndingHere *= *it;
+		curMax = max(max(*it, maxEndingHere), minEndingHere);
+		if(curMax>max)
+		{
+			if (curMax == maxEndingHere)
+				start = startPos;
+			else if (curMax == minEndingHere)
+				start = startNeg;
+			else
+				start = it - arr.begin();
+
+			end = it - arr.begin();
+			max = curMax;
+		}
+
+		int initStartPos = startPos;
+
+		if (curMax == *it)
+			startPos = it - arr.begin();
+		else if (curMax == minEndingHere)
+			startPos = startNeg;
+
+		curMin = min(min(*it, minEndingHere), maxEndingHere);
+
+		if (curMin == *it)
+			startNeg = it - arr.begin();
+		else if (curMin == maxEndingHere)
+			startNeg = initStartPos;
+
+
+		maxEndingHere = curMax;
+		minEndingHere = curMin;
+	}
+
+	return max;
+
 }
 
 bool pairCompare(const pair<int,int> &a, const pair<int,int> &b)
@@ -1492,7 +1576,7 @@ int Knapsack(int items,int weight[],int value[],int maxWeight)
 double power(int x, int y)
 {
 	if(y<0)
-		return (1/_power(x,y));
+		return (1/_power(x,-1*y));
 	else
 		return _power(x,y);
 }

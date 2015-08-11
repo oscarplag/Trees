@@ -6,24 +6,19 @@
 
 using namespace std;
 
-struct PointCenter
-{
-	Point p;
-	Point center;
-	PointCenter(Point P, Point Center)
-	{
-		p = P;
-		center = Center;
-	}
-};
-
 class Compare
 {
+private:
+	Point _center;
 public:
-	bool operator()(PointCenter p1, PointCenter p2)
+	Compare(Point center)
 	{
-		float dist1 = sqrt(pow(float(p1.center.x-p1.p.x),2)+pow(float(p1.center.y-p1.p.y),2));
-		float dist2 = sqrt(pow(float(p2.center.x-p2.p.x),2)+pow(float(p2.center.y-p2.p.y),2));
+		_center = center;
+	}
+	bool operator()(Point p1, Point p2)
+	{
+		float dist1 = sqrt(pow(float(_center.x-p1.x),2)+pow(float(_center.y-p1.y),2));
+		float dist2 = sqrt(pow(float(_center.x-p2.x),2)+pow(float(_center.y-p2.y),2));
 		return dist1>dist2;
 	}
 };
@@ -31,10 +26,8 @@ public:
 class Plane
 {
 private:
-	Point _center;
 	vector<Point> _planePoints;
-	priority_queue<PointCenter, vector<PointCenter>,Compare> _centerDistances;	
-
+	
 public:
 	Plane(void);
 	~Plane(void);

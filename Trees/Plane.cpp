@@ -18,33 +18,27 @@ void Plane::addPoint(Point p)
 
 vector<Point> Plane::findClosestPoints(Point center, int numPoints)
 {
-	_center = center;
+	priority_queue<Point, vector<Point>, Compare> _centerDistances(center);
 
-	while(!_centerDistances.empty())
-	{
-		_centerDistances.pop();
-	}
-	
 	for(int i =0; i<_planePoints.size();i++)
 	{
-		PointCenter p(_planePoints[i],_center);
-		_centerDistances.push(p);
+		_centerDistances.push(_planePoints[i]);
 	}
 
 	vector<Point> closestPoints;
 
 	for(int i = 0;i<numPoints && !_centerDistances.empty();)
 	{
-		Point p = _centerDistances.top().p;
-		if(!(p==_center))
+		Point p = _centerDistances.top();
+		if(!(p==center))
 		{
-			closestPoints.push_back(_centerDistances.top().p);
+			closestPoints.push_back(_centerDistances.top());
 			i++;
 		}
 		_centerDistances.pop();
 	}
-
 	return closestPoints;
+	return vector<Point>();
 }
 		
 CustomPlane::CustomPlane(void)
