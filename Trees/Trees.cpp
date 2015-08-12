@@ -43,10 +43,10 @@
 //#define POWER_TEST
 //#define ROTATED_SEARCH
 //#define SELF_EXCLUDING_PRODUCT
-#define PLANE_POINTS
+//#define PLANE_POINTS
 //#define NESTED_LIST
 //#define INFLUENCER
-//#define IS_NUM
+#define IS_NUM
 //#define PALINDROME
 //#define SPLIT_WORDS
 //#define WORD_DIST
@@ -180,14 +180,18 @@ int _tmain(int argc, _TCHAR* argv[])
 
 #ifdef IS_NUM
 
+	bool test = std::regex_match("1234b", std::regex("\\d+"));
+
 	isNumRegEx(string("80.4536"));
 	isNumRegEx(string("-75.65"));
 	isNumRegEx(string("69"));
 	isNumRegEx(string("a123123"));
+	isNumRegEx(string("1231."));
 	isNumRegEx(string("0.9876.08"));
 	isNumRegEx(string(".982324"));
 	isNumRegEx(string(".982.324"));
 	isNumRegEx(string("1.234asd"));
+	isNumRegEx(string("-.123"));
 
 
 #endif
@@ -969,18 +973,16 @@ bool isNumBoost(string &str)
 
 bool isNumRegEx(string &str)
 {
-	//if(std::regex_match(str,std::regex("(?=(^\\.)\\d+|\\d*)")))
-	//{
-	//	cout << str << " is a number!" << endl;
-	//	return true;
-	//}
-	//if(std::regex_match(str,std::regex("(^-|\\.)?\\d+(\\.)?\\d*")))
-	if(std::regex_match(str,std::regex("(^-)?\\d+(\\.)?\\d*")))
+	if (std::regex_match(str, std::regex("(-)?\\d+(\\.\\d+)?")))
+	//if (std::regex_search(str, std::regex("^(-\\d+|\\d+)(\\.\\d+)?$")))
+	//if (std::regex_search(str, std::regex("^(((-\\d+|\\d+)(\\.\\d+)?)|\\.\\d+)$"))) // SEARCH VERSION WITH EVERYTHING IN ONE STEP
+	//if (std::regex_match(str,std::regex("((-)?\\d+(\\.\\d+)?)|(\\.\\d+)"))) //MATCH VERSION WITH EVERYTHING IN ONE STEP
 	{
 		cout << str << " is a number!" << endl;
 		return true;
 	}
-	else if(std::regex_match(str,std::regex("(^\\.)?\\d+")))
+	else if(std::regex_match(str,std::regex("\\.\\d+")))
+	//else if (std::regex_search(str, std::regex("^(\\.\\d+)$")))
 	{
 		cout << str << " is a number!" << endl;
 		return true;
