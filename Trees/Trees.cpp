@@ -46,7 +46,7 @@
 //#define PLANE_POINTS
 //#define NESTED_LIST
 //#define INFLUENCER
-#define IS_NUM
+//#define IS_NUM
 //#define PALINDROME
 //#define SPLIT_WORDS
 //#define WORD_DIST
@@ -102,7 +102,7 @@ bool isNumBoost(string &str);
 bool isNumRegEx(string &str);
 
 int maxPalindrome(string &str);
-int _maxPalindrome(string &str, int** dp, int start, int end);
+int _maxPalindrome(string &str, int** dp, int start, int end); 
 
 int wordDistance(string sentence, string str1, string str2); 
 
