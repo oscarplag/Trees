@@ -137,6 +137,7 @@
   <ItemGroup>
     <ClInclude Include="BinarySearchTree.h" />
     <ClInclude Include="BTree.h" />
+    <ClInclude Include="BuddyBitmap.h" />
     <ClInclude Include="CustomHeap.h" />
     <ClInclude Include="Heap.h" />
     <ClInclude Include="HundredGame.h" />
@@ -152,6 +153,7 @@
   <ItemGroup>
     <ClCompile Include="BinarySearchTree.cpp" />
     <ClCompile Include="BTree.cpp" />
+    <ClCompile Include="BuddyBitmap.cpp" />
     <ClCompile Include="CustomHeap.cpp" />
     <ClCompile Include="Heap.cpp" />
     <ClCompile Include="HundredGame.cpp" />

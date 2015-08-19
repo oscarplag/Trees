@@ -25,6 +25,7 @@
 #include "boost/lexical_cast.hpp"
 #include <boost/algorithm/string.hpp>
 #include "BinarySearchTree.h"
+#include "BuddyBitmap.h"
 
 
 //#define INDECIES
@@ -51,6 +52,7 @@
 //#define SPLIT_WORDS
 //#define WORD_DIST
 //#define WORD_JUSTIFIER
+#define BUDDY_BITMAP
 
 
 using namespace std;
@@ -804,6 +806,29 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	elapsedTime = (t4.QuadPart - t3.QuadPart) * 1000.0/ frequency.QuadPart;
 	printf("Elapsed Time for Set method: %f\n",elapsedTime);
+#endif
+
+#ifdef BUDDY_BITMAP
+	vector<int> myArray;
+	myArray.push_back(0);
+	myArray.push_back(0);
+	myArray.push_back(1);
+	myArray.push_back(1);
+	myArray.push_back(0);
+	myArray.push_back(1);
+	myArray.push_back(1);
+	myArray.push_back(1);
+	myArray.push_back(1);
+	myArray.push_back(1);
+	myArray.push_back(0);
+	myArray.push_back(1);
+
+	BuddyBitmap myBitmap(myArray);
+	myBitmap.PrintMap();
+
+	//myBitmap.SetBits(10, 1);
+	myBitmap.ClearBits(2, 1);
+	myBitmap.PrintMap();
 #endif
 
 	return 0;

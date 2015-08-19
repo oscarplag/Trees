@@ -13,6 +13,7 @@
     <ClCompile Include="WordJustifier.cpp" />
     <ClCompile Include="WordDistance.cpp" />
     <ClCompile Include="BinarySearchTree.cpp" />
+    <ClCompile Include="BuddyBitmap.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BTree.h" />
@@ -28,6 +29,7 @@
     <ClInclude Include="WordJustifier.h" />
     <ClInclude Include="WordDistance.h" />
     <ClInclude Include="BinarySearchTree.h" />
+    <ClInclude Include="BuddyBitmap.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
