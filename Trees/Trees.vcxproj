@@ -80,6 +80,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(BOOST);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -134,15 +135,31 @@
     <None Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BinarySearchTree.h" />
     <ClInclude Include="BTree.h" />
+    <ClInclude Include="BuddyBitmap.h" />
+    <ClInclude Include="CustomHeap.h" />
     <ClInclude Include="Heap.h" />
+    <ClInclude Include="HundredGame.h" />
+    <ClInclude Include="PickNumber.h" />
+    <ClInclude Include="NestedList.h" />
+    <ClInclude Include="Plane.h" />
+    <ClInclude Include="Point.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="WordDistance.h" />
     <ClInclude Include="WordJustifier.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BinarySearchTree.cpp" />
     <ClCompile Include="BTree.cpp" />
+    <ClCompile Include="BuddyBitmap.cpp" />
+    <ClCompile Include="CustomHeap.cpp" />
     <ClCompile Include="Heap.cpp" />
+    <ClCompile Include="HundredGame.cpp" />
+    <ClCompile Include="PickNumber.cpp" />
+    <ClCompile Include="NestedList.cpp" />
+    <ClCompile Include="Plane.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -150,6 +167,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Trees.cpp" />
+    <ClCompile Include="WordDistance.cpp" />
     <ClCompile Include="WordJustifier.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

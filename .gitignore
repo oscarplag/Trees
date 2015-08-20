@@ -1,7 +1,11 @@
 syntax: glob
 
+ipch/
+*.sdf
+
 DexelaDetector.dll
 DexelaDetector.lib
+
 
 *.raw
 *.tif

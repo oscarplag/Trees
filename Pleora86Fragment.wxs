@@ -1,0 +1,554 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <?define SrcPleora86 = C:\Users\plagon\Documents\Git-Workspace\WixSetup\DexelaDetectorSetup\Pleora\x86?>
+    <Fragment>
+        <DirectoryRef Id="PLEORA86">
+            <Directory Id="dir6676A3C5D1F7DFD806101E8D34390742" Name="eBUS SDK">
+                <Component Id="cmpC97E9BAA6003C3E290F26DFC34F87959" Guid="{A6BD92FC-9D00-44C0-A2C5-79DCAB729E4A}" Win64="no">
+                    <File Id="filB6E73D4BCCD6292F1C98E234E5C244D3" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\clserpte.dll" />
+                </Component>
+                <Component Id="cmpB442A945B8FE25C4555F44AD92113C0F" Guid="{9CC34279-7456-4660-9486-1C9994D17122}" Win64="no">
+                    <File Id="fil81602D4FAD552D305BA8BBBD5D82CBFD" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\DriverInstallerGUI.exe" />
+                </Component>
+                <Component Id="cmp90FC72BB21A33EC61F14866CC7FE82B8" Guid="{E81BBE53-96A0-4C4E-AC81-854394FBF06C}" Win64="no">
+                    <File Id="filAC2F06BCD8ED4FEBFC08279F2BDA6148" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\EbInstallerLib.dll" />
+                </Component>
+                <Component Id="cmp0BFE942312BDAF165C8A865B50CEAA39" Guid="{DE2E67EE-23CD-4575-A8CE-A82AC9D6C20F}" Win64="no">
+                    <File Id="fil87EEC7B27AE39AE73CF6CB5ABD9B4B02" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\EbNetworkLib.dll" />
+                </Component>
+                <Component Id="cmp89DA5759EFA3C7CE22DC8560CACDEA32" Guid="{CF23EE8E-4CB9-43BB-B084-2A544522ADB0}" Win64="no">
+                    <File Id="filF087C018D22A51351B670F868B4388EC" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\EbTransportLayerLib.dll" />
+                </Component>
+                <Component Id="cmpE6302B34B8F3C507181E628F3F20B6C4" Guid="{0911577A-104A-4410-94B0-BDE223082105}" Win64="no">
+                    <File Id="fil02F88EB6790D4098EBCD7C58F8C59B7D" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\PtConvertersLib.dll" />
+                </Component>
+                <Component Id="cmp75BA3DCE1DB615AB9520B0A1E3EB6E65" Guid="{954DFEBE-E35F-47C9-B3B1-6EB09189BD5A}" Win64="no">
+                    <File Id="fil8ED742E1FC0F04F81385A93C4373BEF5" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\PtUtilsLib.dll" />
+                </Component>
+                <Component Id="cmpB45332E676E47501A21E343FE8A1EEF7" Guid="{F7B6E08B-49C5-4817-879D-B454DF8A6047}" Win64="no">
+                    <File Id="fil5F52EF53EEAC80A11F2FF32D7945828E" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\PvBase.dll" />
+                </Component>
+                <Component Id="cmp41F32C146A602C4C8F4F45AC9A9EDA4B" Guid="{6F70BF46-8E1D-4436-9D8F-4BB7DB68DA57}" Win64="no">
+                    <File Id="filE6806A0A6695C66998E80CB0761C0270" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\PvBuffer.dll" />
+                </Component>
+                <Component Id="cmp25157C0FF70EBC74CF54C330E9D05270" Guid="{2936F3D9-41FC-4CB1-B4C5-71A0C0CAFAED}" Win64="no">
+                    <File Id="fil6B9093082298F572C2B5B3FF0DE4AA3C" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\PvDevice.dll" />
+                </Component>
+                <Component Id="cmp11BC9B2ED2521AD9594031F3B2BD26FE" Guid="{3D3729E7-87B5-4375-BD2C-436EA191CAF9}" Win64="no">
+                    <File Id="filE1FFC2FBA72DEC1591EC734D3507FC8F" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\PvDotNet.dll" Assembly=".net" />
+                </Component>
+                <Component Id="cmp11D8F7B1A1518A7FE24D2C67C0516FB0" Guid="{5D891924-7962-426C-BAE8-FCDA42AC8901}" Win64="no">
+                    <File Id="fil88C309A9532430D2C6605ABF3ED4291F" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\PvDotNet.xml" />
+                </Component>
+                <Component Id="cmpC8598774942C48835FA724D0BCFB7F95" Guid="{B4311179-3512-4730-ACB3-35CED90486FA}" Win64="no">
+                    <File Id="filAFA3B5A45DA40CD3C1E604D923135DC7" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\PvGenICam.dll" />
+                </Component>
+                <Component Id="cmp485B76472AB0048BD5B8E7F7FD9EA490" Guid="{6463DA73-6A20-4FFE-AA58-68FBA8FBAD77}" Win64="no">
+                    <File Id="filD16282B8B89575C6FA2909747CBAC75F" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\PvGUIDotNet.dll" Assembly=".net" />
+                </Component>
+                <Component Id="cmpFC530930A3BFC3DECA5BD257D8A4166D" Guid="{73B9F98F-2454-41A5-BC2A-941AE1294262}" Win64="no">
+                    <File Id="fil50F9D4195E9CF7704A8E5C48D040D4AD" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\PvGUIDotNet.xml" />
+                </Component>
+                <Component Id="cmp3B0B7E42F1A92D2957CBBADE06620859" Guid="{9303D3ED-9F32-4AAA-882E-A3F783BEFA31}" Win64="no">
+                    <File Id="fil279E880C2C38F433C30FAE96FB641F6C" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\PvGUIUtils.dll" />
+                </Component>
+                <Component Id="cmp1A4790016FBCAF7A9A65E9B86AF73C82" Guid="{337818EF-29C5-49F2-93BD-41766B6CA09B}" Win64="no">
+                    <File Id="fil069410455AC16C6F375F825C78146153" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\PvGUI_VC10.dll" />
+                </Component>
+                <Component Id="cmp8772FC5642DECD08375395308148E60B" Guid="{46FE60BF-ABA4-484C-80E9-8017E9D4FE2D}" Win64="no">
+                    <File Id="fil8265ECC82F9BE5325B1A36AEA1298AEF" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\PvGUI_VC8.dll" />
+                </Component>
+                <Component Id="cmp4771C7931AC45017FBF7CA4E94E4B6AB" Guid="{AABDB336-BE7A-4668-94C6-CBBBDB74EE61}" Win64="no">
+                    <File Id="filBA1441E53A2B9DB23EDE6F8D389B2321" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\PvGUI_VC9.dll" />
+                </Component>
+                <Component Id="cmp4779D892DE72100A52B5D5E2ACCF2F6C" Guid="{B6669032-7365-4B34-860C-86F8B7814DA6}" Win64="no">
+                    <File Id="fil9018C7431E82B6D5BFE5CDF904E2EE25" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\PvPersistence.dll" />
+                </Component>
+                <Component Id="cmpB4143EB87E0003068DB80651A3B95488" Guid="{4651EEAA-CA93-46B8-8E71-BFF43029ADF2}" Win64="no">
+                    <File Id="filAA262C2AB67F99E62EAF12D994CACC99" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\PvSerial.dll" />
+                </Component>
+                <Component Id="cmp25BE53DC300DC749B344546F534DF49A" Guid="{42FA2DC9-2FC7-43D9-BB39-5C465E6AE2AB}" Win64="no">
+                    <File Id="filE8DA44016B7897D1780DA62DBAEABDD5" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\PvStream.dll" />
+                </Component>
+                <Component Id="cmp7C62F8623ED580E659BDB0F3F8F3CC64" Guid="{6FE8BD99-57FB-403F-8F00-F7DC38A35931}" Win64="no">
+                    <File Id="fil0BADC8C6CB5F3892A1E72FFF83B5B453" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\PvStreamRaw.dll" />
+                </Component>
+                <Component Id="cmp8832E6C8B88FFAF93350BC9D03C38659" Guid="{CF867A59-159B-44F9-8AB6-8FCE048CC476}" Win64="no">
+                    <File Id="filA52E7664624092D77BA1ED0B0588A342" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\PvTransmitterRaw.dll" />
+                </Component>
+                <Component Id="cmpFDB850AF2FB37BFB774B1EFE6D366727" Guid="{B3BEB456-5E53-4C25-91BF-0498E517DC09}" Win64="no">
+                    <File Id="filFCA1C431A684F682B903BB2FC147E0DD" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\PvVirtualDevice.dll" />
+                </Component>
+                <Directory Id="dirD9A3ED57DC14C1637026CC88E984CB8A" Name="DriverInstaller">
+                    <Component Id="cmp97D74D2C552FEA13D2D3C36A176D2B2B" Guid="{D8DE70F5-5BAE-43F7-BCB3-552546166C63}" Win64="no">
+                        <File Id="fil1B8A38F411C4250F98AF7E4AD0B03F3B" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\DriverInstaller\DriverInstallerTool.exe" />
+                    </Component>
+                    <Directory Id="dirFD85B076FE6FAB8A139811645B5A76C1" Name="driver">
+                        <Component Id="cmp2495245B915EA75F07CF8BA00C1B93D8" Guid="{AB54E6BA-6657-4B27-ACA3-3FBB267DA3AB}" Win64="no">
+                            <File Id="filBF18391064B07505DFBEBE8384A44F05" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\DriverInstaller\driver\dpinst.exe" />
+                        </Component>
+                        <Directory Id="dir8AC0B01FFEF664217EE469675E35F79E" Name="epix">
+                            <Directory Id="dir769A556B99FFD3A25DEC6FA988D6D56D" Name="Win7">
+                                <Component Id="cmpA69065E5F9574F6E44C0C95F28381828" Guid="{B0FA8C48-4F8A-4795-9BA8-D9021E1FD864}" Win64="no">
+                                    <File Id="fil51E1D64D20671D64330667654937C0A9" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\DriverInstaller\driver\epix\Win7\epixxcw2.cat" />
+                                </Component>
+                                <Component Id="cmp30863305C5B07D300D9F91A6000444E6" Guid="{95EA5B28-20DE-452D-AA24-841554E2176E}" Win64="no">
+                                    <File Id="fil7DCB695790B792E0EE87BB9F441F6DAC" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\DriverInstaller\driver\epix\Win7\epixxcw2.inf" />
+                                </Component>
+                                <Component Id="cmp30B22494D7D740C6AC95766CCAE38EC8" Guid="{67CE3514-73A7-489F-A008-491620F3FC50}" Win64="no">
+                                    <File Id="filE55A30C157B0AD7664A75D54A8089928" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\DriverInstaller\driver\epix\Win7\epixxcw2.sys" />
+                                </Component>
+                            </Directory>
+                            <Directory Id="dirC21A66B9D1B9E8BFED545D204470154C" Name="Win7x64">
+                                <Component Id="cmp86D145C9239F531CF75A3508E67EF73B" Guid="{2C79B081-E411-40F7-B05D-4CD584278E75}" Win64="no">
+                                    <File Id="fil0A2683FA33FB4A88B939C8531745D75E" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\DriverInstaller\driver\epix\Win7x64\epixxcw6.cat" />
+                                </Component>
+                                <Component Id="cmpC13759B3BDF966E40B369032E8C95326" Guid="{DF56F4C3-734B-4222-BF3B-CAABE5CEC73D}" Win64="no">
+                                    <File Id="filC2B8A2C000F31D413E93C0E341290C22" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\DriverInstaller\driver\epix\Win7x64\epixxcw6.inf" />
+                                </Component>
+                                <Component Id="cmp0C4FAAFF9CEBCD75F02E49DDB7C2E3C2" Guid="{5C2460C6-30C2-49E9-BC5E-CC4E7507B9D5}" Win64="no">
+                                    <File Id="fil8650C3FBA61BF6386BB192152E319503" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\DriverInstaller\driver\epix\Win7x64\epixxcw6.sys" />
+                                </Component>
+                            </Directory>
+                            <Directory Id="dir40713C77A6977CA0095E6637A3C2B30D" Name="Win8">
+                                <Component Id="cmp9DD10619D498292B154E6BF74F9D936A" Guid="{DC80E0C2-7901-4BDA-82C9-0C66FE79B571}" Win64="no">
+                                    <File Id="fil8CA5F977DA47758ADDB68E4010CE598F" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\DriverInstaller\driver\epix\Win8\epixxcw2.cat" />
+                                </Component>
+                                <Component Id="cmp0DF5E9839BB5040826496510E97E51F8" Guid="{3258200F-42B3-4737-8CF6-901B504F62BF}" Win64="no">
+                                    <File Id="filA0871168A7060EF5E10AD6F576C4FA4C" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\DriverInstaller\driver\epix\Win8\epixxcw2.inf" />
+                                </Component>
+                                <Component Id="cmpB5E2DC7EB007DE17DF716166DEB66B24" Guid="{B04B4C9E-EF50-4FDC-957C-26DBF01C217B}" Win64="no">
+                                    <File Id="fil14BDB9EF35D97932C7AD45F52EFED5EE" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\DriverInstaller\driver\epix\Win8\epixxcw2.sys" />
+                                </Component>
+                            </Directory>
+                            <Directory Id="dir6CB75A3B006D21C36A5492EA8B7A91DF" Name="Win8x64">
+                                <Component Id="cmp7F4C0272F017BA72B47CE22FDF98906B" Guid="{E21D43D8-1EB9-40E1-8CB8-AE6420EFA65E}" Win64="no">
+                                    <File Id="fil425943ABDCC9A81A9307ADDB571ED19B" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\DriverInstaller\driver\epix\Win8x64\epixxcw6.cat" />
+                                </Component>
+                                <Component Id="cmpA519B8B6384169DEFC8661BA1BB6BAD0" Guid="{E379698D-C55F-45BD-B9A8-62ECFE81240A}" Win64="no">
+                                    <File Id="fil498950A52941CCF43990A28ED9D910E1" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\DriverInstaller\driver\epix\Win8x64\epixxcw6.inf" />
+                                </Component>
+                                <Component Id="cmp3FED355D51AB03E8A0B4470161B736F8" Guid="{6662A912-0A51-4EC6-A33C-C7FF0504EB7D}" Win64="no">
+                                    <File Id="filF65AA5C63E24F41C49DDEB8124F5510A" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\DriverInstaller\driver\epix\Win8x64\epixxcw6.sys" />
+                                </Component>
+                            </Directory>
+                            <Directory Id="dirBE805B2FCA662F7D32E43A92F392030B" Name="WinVS">
+                                <Component Id="cmpCA6267BA0551B04B2D1CC9CAC0653AAD" Guid="{696AD1F6-AF77-4027-8D4D-E573168DCEE3}" Win64="no">
+                                    <File Id="filC0E6CAFE656DF850C51763D179E105C0" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\DriverInstaller\driver\epix\WinVS\epixxcw2.cat" />
+                                </Component>
+                                <Component Id="cmp7AF2BDA06EC7BC72E2679278F03D5D6B" Guid="{C662D059-D224-4CF7-914A-83765DE99984}" Win64="no">
+                                    <File Id="fil613BDA8D51D55965D2CE197E1701546C" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\DriverInstaller\driver\epix\WinVS\epixxcw2.inf" />
+                                </Component>
+                                <Component Id="cmp6D8AE6B5948D0D781E5FC0F2157C5E3A" Guid="{3757D1F3-3BFA-4973-8FB2-BD01F42CE88C}" Win64="no">
+                                    <File Id="filDBFB0C94C604097BFF7E2236DA63D4A8" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\DriverInstaller\driver\epix\WinVS\epixxcw2.sys" />
+                                </Component>
+                            </Directory>
+                            <Directory Id="dirF471E9C95BBB55E50BD96F999F687B8F" Name="WinVS64">
+                                <Component Id="cmpB6749CABE9213D954010835DBCB8C3C0" Guid="{CD968AB2-595F-48E5-A10A-F43674E63B4F}" Win64="no">
+                                    <File Id="fil529C0F02AE8C3A96F1DD2E843E907519" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\DriverInstaller\driver\epix\WinVS64\epixxcw6.cat" />
+                                </Component>
+                                <Component Id="cmp2F48FEF4A7E9F02336569067C260742D" Guid="{37B54E15-B59A-4970-98D9-C6277BAAEB3E}" Win64="no">
+                                    <File Id="filBCA1513BDDC2853986DEA09C4A0EAD3D" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\DriverInstaller\driver\epix\WinVS64\epixxcw6.inf" />
+                                </Component>
+                                <Component Id="cmp72E8613980143B70698E940B420FA334" Guid="{691CC4EE-BF89-42DB-8916-17874EA01451}" Win64="no">
+                                    <File Id="fil2CE82D251A69A3B145EAB6D2CC8D3D93" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\DriverInstaller\driver\epix\WinVS64\epixxcw6.sys" />
+                                </Component>
+                            </Directory>
+                            <Directory Id="dir31879D06AA9DC4E5C992C46049EF42D4" Name="WinXP">
+                                <Component Id="cmp4C14220394D3302B90839E6480146F98" Guid="{9C0C42A1-90EC-4DB5-824B-800F745D7FC9}" Win64="no">
+                                    <File Id="fil75FBE00A59B185673C3D559E11855793" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\DriverInstaller\driver\epix\WinXP\epixxcw2.cat" />
+                                </Component>
+                                <Component Id="cmpDDC873E0A960639E33652DC7E27FA810" Guid="{A6ECF532-37DE-47B5-8451-8D0F6686301B}" Win64="no">
+                                    <File Id="filEC70EEA9CCA02170435B562AE2E659F0" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\DriverInstaller\driver\epix\WinXP\epixxcw2.inf" />
+                                </Component>
+                                <Component Id="cmpDB9F312264F4D168264E1E4E52E88E55" Guid="{A0FA3A07-C9BB-4A88-88C1-720049EB2B22}" Win64="no">
+                                    <File Id="fil16D9CCD7F70028AD23C6C61D5DC4DB32" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\DriverInstaller\driver\epix\WinXP\epixxcw2.sys" />
+                                </Component>
+                            </Directory>
+                            <Directory Id="dir441ADAE354AD4B9CBC61266064485492" Name="WinXP64">
+                                <Component Id="cmp87A2F0CDDABF804BF279114645292FB6" Guid="{E62AA254-816D-4779-B2F7-E194CCD7D1DA}" Win64="no">
+                                    <File Id="fil795C9ACF98B1823047398F63265B070B" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\DriverInstaller\driver\epix\WinXP64\epixxcw6.cat" />
+                                </Component>
+                                <Component Id="cmp1F1D6DA5BDA8FBA11B4EF61C92F85664" Guid="{08AB2E09-4571-470A-B2C9-D8DBCA5E7287}" Win64="no">
+                                    <File Id="filE63AB593A71DF05F005BE72C1753C438" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\DriverInstaller\driver\epix\WinXP64\epixxcw6.inf" />
+                                </Component>
+                                <Component Id="cmp48A2B461F2EFC7C6F5F8931E83524343" Guid="{8AFAF42C-EE9F-4A55-84F6-077C8F346EE1}" Win64="no">
+                                    <File Id="filF33237742BA4EA06211308BF58933B86" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\DriverInstaller\driver\epix\WinXP64\epixxcw6.sys" />
+                                </Component>
+                            </Directory>
+                        </Directory>
+                        <Directory Id="dirB6A94BFC5FE2A49E6CCE0F8E146CB7FE" Name="pleora">
+                            <Directory Id="dirF92899F27D05DD362BF1884B81A3659D" Name="x64">
+                                <Directory Id="dirB9B6C2E3F9083ED15F19D3EE21B2D57E" Name="NDIS6">
+                                    <Component Id="cmpE13B45493B768E0B43C1DEC53C7ECD74" Guid="{A1A2F5A1-5BC6-4FD6-8530-0DF2D6C71F0A}" Win64="no">
+                                        <File Id="fil524E1E51656F2AF30CF5FD67813B45D9" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\DriverInstaller\driver\pleora\x64\NDIS6\EbNotifyObjectUniversalPro.dll" />
+                                    </Component>
+                                    <Component Id="cmp8BFB151096E3AAAF3EEBAB440DA2EA32" Guid="{34A4B60D-C281-4D4F-A6E6-E59C65C115AB}" Win64="no">
+                                        <File Id="fil0ED345DD34FA5430D8309D3535F1AA96" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\DriverInstaller\driver\pleora\x64\NDIS6\ebuniversalpro.cat" />
+                                    </Component>
+                                    <Component Id="cmp89B36D60C06402DBA454ABBEEE8BFBD8" Guid="{A4FFE9E7-A196-4C1F-9CE1-4A3C6606C33C}" Win64="no">
+                                        <File Id="fil71E489DC3064405D15C33C3E1CD226E1" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\DriverInstaller\driver\pleora\x64\NDIS6\ebUniversalPro.inf" />
+                                    </Component>
+                                    <Component Id="cmpCD2DB68FF771CACD7C9358EF7BFD25F6" Guid="{BCDF1BBC-C1EE-4C79-AB8F-D4104415A997}" Win64="no">
+                                        <File Id="fil535A83DFDCA1C8378D1D77F94C5F72DC" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\DriverInstaller\driver\pleora\x64\NDIS6\ebUniversalPro.sys" />
+                                    </Component>
+                                </Directory>
+                            </Directory>
+                            <Directory Id="dir441A9046D2868A65620888C5B9CE20DF" Name="x86">
+                                <Directory Id="dir95B76D43FD842304322F885F0ABE6913" Name="NDIS5">
+                                    <Component Id="cmpD60B860B5A9304463C7AF906DF89270C" Guid="{A08DC146-40E2-4DD7-BB0D-9F185B4BACBF}" Win64="no">
+                                        <File Id="fil03F14D2F0D222917F6E6099B14E3E7E0" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\DriverInstaller\driver\pleora\x86\NDIS5\EbNotifyObjectUniversalPro.dll" />
+                                    </Component>
+                                    <Component Id="cmpDCB1FF4025F87AC538AE5FBBE9B98A62" Guid="{5CB02DA3-D9B3-45FB-A596-0901670A9CE1}" Win64="no">
+                                        <File Id="filA6282784A8A69EB6A2E84B6442A0CA7E" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\DriverInstaller\driver\pleora\x86\NDIS5\ebuniversalpro.cat" />
+                                    </Component>
+                                    <Component Id="cmpD9EF971ECDE6499D0AEB31CCA3DFC5D2" Guid="{C612E65A-79AB-4072-97C9-ADA3B9FD50A1}" Win64="no">
+                                        <File Id="fil2CE2A774DEDDDFBE32C6D9C0FACC0F0B" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\DriverInstaller\driver\pleora\x86\NDIS5\ebUniversalPro.inf" />
+                                    </Component>
+                                    <Component Id="cmpEB8B893334314670F38A6E110ADC384A" Guid="{A54017D4-4D62-48F4-8E71-3DDBD5A4E72E}" Win64="no">
+                                        <File Id="fil05A7FF22C3EB6B5B6E255CC09BC248BC" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\DriverInstaller\driver\pleora\x86\NDIS5\ebUniversalPro.sys" />
+                                    </Component>
+                                    <Component Id="cmp734C417BEEC020D0780233E72F88539E" Guid="{E4D837E7-7B30-43CF-A4C0-674129B18D9E}" Win64="no">
+                                        <File Id="fil653423BD2708C5DBC35C985A274E7933" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\DriverInstaller\driver\pleora\x86\NDIS5\ebuniversalpro_mp.cat" />
+                                    </Component>
+                                    <Component Id="cmpEB571E078BDAF14EF1605433A02884D7" Guid="{32E9BEB1-44E1-4ABF-AB55-34107501B8D6}" Win64="no">
+                                        <File Id="fil90ABF3C01DCA399FDA83FBF1DE5A54D6" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\DriverInstaller\driver\pleora\x86\NDIS5\ebUniversalPro_mp.inf" />
+                                    </Component>
+                                </Directory>
+                                <Directory Id="dirB9808D5073CDA2BA88BC4943863E3ED8" Name="NDIS6">
+                                    <Component Id="cmp8C9667DD6C016FE6AD5B8C449452D152" Guid="{317C9930-A9F8-47D4-829D-DEBDC8BD394A}" Win64="no">
+                                        <File Id="filD19DD920B6649C5D4D4C792F0CCF74EC" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\DriverInstaller\driver\pleora\x86\NDIS6\EbNotifyObjectUniversalPro.dll" />
+                                    </Component>
+                                    <Component Id="cmp85062DF04D7F633E82832449A806E391" Guid="{1105BD93-5C8E-4AD5-BBCA-B15B2EC877D8}" Win64="no">
+                                        <File Id="fil5A4B59430C45630A0F9C2A02002B4534" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\DriverInstaller\driver\pleora\x86\NDIS6\ebuniversalpro.cat" />
+                                    </Component>
+                                    <Component Id="cmpC9260729D6B12B00ED37153607D10A6B" Guid="{DE089991-51C6-490B-8421-BDEA619BFC5E}" Win64="no">
+                                        <File Id="fil97051EE61C1F940947DF3DB8692FAC79" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\DriverInstaller\driver\pleora\x86\NDIS6\ebUniversalPro.inf" />
+                                    </Component>
+                                    <Component Id="cmp12EAD0E47219C652E242FF3AA6EBD22E" Guid="{B79FA16B-D1D7-4053-9B3B-CC7CE83414DB}" Win64="no">
+                                        <File Id="fil08F26AD092061841AEBF057F0DC9F254" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\DriverInstaller\driver\pleora\x86\NDIS6\ebUniversalPro.sys" />
+                                    </Component>
+                                </Directory>
+                            </Directory>
+                        </Directory>
+                    </Directory>
+                </Directory>
+                <Directory Id="dir1405E94559795EBF7816BC3D30ECBFC9" Name="GenICam">
+                    <Directory Id="dir19161C08E40DF89D7C1C7ABE53725373" Name="bin">
+                        <Directory Id="dirBEEBB527F61A8D6A947409164536079B" Name="Win32_i86">
+                            <Component Id="cmp1AB4F2D60592E0A826109D8668D4D21B" Guid="{60DB8653-0381-400E-983D-2A922A167F35}" Win64="no">
+                                <File Id="fil9BB92384482838BCFF2D65F6227DCFD5" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\GenICam\bin\Win32_i86\CLAllSerial_MD_VC100_v2_3.dll" />
+                            </Component>
+                            <Component Id="cmpD4244529E13BEC261AF955B5BF5C727A" Guid="{F31881DB-50C7-41E9-B727-6F280F4D1557}" Win64="no">
+                                <File Id="filF3B5F7CBED54C1EE510252473704ABCE" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\GenICam\bin\Win32_i86\CLAllSerial_MD_VC80_v2_2.dll" />
+                            </Component>
+                            <Component Id="cmpED1EC984F552A44AE08BB1A8ECE9D274" Guid="{D05FEC1D-685B-4077-9C7E-B1196288AC61}" Win64="no">
+                                <File Id="filDB0FD1CF91D07EDBBF50108776443622" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\GenICam\bin\Win32_i86\CLProtocol_MD_VC100_v2_3.dll" />
+                            </Component>
+                            <Component Id="cmp71B14A01DB8B1A1129598608E3D4D3C4" Guid="{727C9177-BA61-42E2-933C-01D59215F377}" Win64="no">
+                                <File Id="fil2537E4AA4FEBF8524742F85FE10E2623" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\GenICam\bin\Win32_i86\CLProtocol_MD_VC80_v2_2.dll" />
+                            </Component>
+                            <Component Id="cmp46A79B562AC0C5CEDA2DC132A6DD25D9" Guid="{89BCCCC2-F7D5-42E3-A6C0-A0D3B1498F58}" Win64="no">
+                                <File Id="fil3736F357231D4067C09443DD4B279CF1" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\GenICam\bin\Win32_i86\GCBase_MD_VC100_v2_3.dll" />
+                            </Component>
+                          <Component Id="cmp6A4F15AEBCAC0E6AA9B2E5B8123C187B" Guid="{4C4A2004-BA10-4343-BF03-96D53977CB55}" Win64="no">
+                            <File Id="fil8EF80639070AA1ECD7251A7C31C5E172" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\GenICam\bin\Win32_i86\GCBase_MD_VC80_v2_2.dll" />
+                          </Component>
+                            <Component Id="cmp31805DC217CA8191D07C2C102D5D639E" Guid="{1D0227C3-B422-47AA-9C3B-543BB7888B5D}" Win64="no">
+                                <File Id="filAB3A6CA08D2A1AA9B031FF80A72BDC9A" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\GenICam\bin\Win32_i86\GenApi_MD_VC100_v2_3.dll" />
+                            </Component>
+                            <Component Id="cmp513577D9FE6021FC69A75AC053254B10" Guid="{E143A8AD-9EA3-4772-A6CD-54768ABEB87F}" Win64="no">
+                                <File Id="fil9E6B93FD35E50C02188D2389CD152854" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\GenICam\bin\Win32_i86\GenApi_MD_VC80_v2_2.dll" />
+                            </Component>
+                            <Component Id="cmp95489816A32260EC3F3AD93E472C1A1F" Guid="{70C7F275-1AFD-4495-A563-8EC95A49F390}" Win64="no">
+                                <File Id="filC2E445C363C9721B288E9299F01A3C02" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\GenICam\bin\Win32_i86\log4cpp_MD_VC100_v2_3.dll" />
+                            </Component>
+                            <Component Id="cmp2D8F151555D8135012CB3E4E6DA7C21A" Guid="{0C87F672-0076-41F6-A7A6-61DAB8E77E1D}" Win64="no">
+                                <File Id="fil0645E7B1D069CC655C61465EDE4D5BF5" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\GenICam\bin\Win32_i86\log4cpp_MD_VC80_v2_2.dll" />
+                            </Component>
+                            <Component Id="cmpD7D185EB492A485B4D3E1C8974BA6366" Guid="{2D67F77B-AC2D-45E8-A5AD-89315091764D}" Win64="no">
+                                <File Id="filCBC3318957FDDDAF56DAF63976161D34" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\GenICam\bin\Win32_i86\Log_MD_VC100_v2_3.dll" />
+                            </Component>
+                            <Component Id="cmpFAA7ED0FC295B496FE4EE4BE2F7EA3A8" Guid="{0D4ED08C-1DAC-4644-B8F7-5AB7D4B08E2A}" Win64="no">
+                                <File Id="fil2EAC40F35522F5F6094A2D2D8074923F" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\GenICam\bin\Win32_i86\Log_MD_VC80_v2_2.dll" />
+                            </Component>
+                            <Component Id="cmpDB715E61C85F0F328602F2BD4F113DEA" Guid="{F5162EC6-3EA6-4292-8B89-BC6B8814129B}" Win64="no">
+                                <File Id="fil966B9315C29B32CCACDC2F56A6E6D1EB" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\GenICam\bin\Win32_i86\MathParser_MD_VC100_v2_3.dll" />
+                            </Component>
+                            <Component Id="cmp9C6FBEAAFBDE08788813443BED2651E7" Guid="{32F1C1B7-8714-4243-A871-6322EC68043E}" Win64="no">
+                                <File Id="filC376A5208B00284044F08BDA989F3BC5" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\GenICam\bin\Win32_i86\MathParser_MD_VC80_v2_2.dll" />
+                            </Component>
+                            <Directory Id="dir3EACA1C949A020400DA7B1FD28FB66E0" Name="genapi">
+                                <Directory Id="dir55EE145C3578F0730318CF45E6D016FE" Name="generic">
+                                    <Component Id="cmpA025CF7FDD558C042CCCCCE283CC7233" Guid="{FBFBFB4D-0861-4782-A220-D557027E4AB0}" Win64="no">
+                                        <File Id="filC93DAAA7C5EC21D4775647D1E08E04D4" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\GenICam\bin\Win32_i86\genapi\generic\Xalan-C_MD_VC100_v1_10_1.dll" />
+                                    </Component>
+                                    <Component Id="cmpF8B1A3477FF4550BED49AB2413F41C69" Guid="{5DBDF026-2D54-48EF-BF17-3C501AA57F0F}" Win64="no">
+                                        <File Id="filF8FD1BBBAAB6199C05B02571E09454C2" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\GenICam\bin\Win32_i86\genapi\generic\Xalan-C_MD_VC80_v1_10.dll" />
+                                    </Component>
+                                    <Component Id="cmp9041C29B085D09E7DEAB42FBE3318E40" Guid="{72E32363-99C4-491E-B1FD-F3A10F63024F}" Win64="no">
+                                        <File Id="fil82AE16169F30B1BAB5021FAC2596AAC1" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\GenICam\bin\Win32_i86\genapi\generic\XalanMessages_MD_VC100_v1_10_1.dll" />
+                                    </Component>
+                                    <Component Id="cmpA93C5CA4FB7903CC832036289E2E4973" Guid="{B850B251-D5F3-4586-A3DA-91A40D51EDBA}" Win64="no">
+                                        <File Id="filB8400A834487F76E0AF066B327CFEA11" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\GenICam\bin\Win32_i86\genapi\generic\XalanMessages_MD_VC80_v1_10.dll" />
+                                    </Component>
+                                    <Component Id="cmp2C83A3B81CB344A50D4FE7A9435857ED" Guid="{D7A6EA67-28D8-48A3-8BB3-B29E510903AA}" Win64="no">
+                                        <File Id="fil19812653C96A8A24E363E6991FD3B682" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\GenICam\bin\Win32_i86\genapi\generic\Xerces-C_MD_VC100_v2_7_1.dll" />
+                                    </Component>
+                                    <Component Id="cmp93FDCEED22A6CEF596EFA81D4A00D0C1" Guid="{6B164E10-F67B-4524-AF7F-1467C134E47E}" Win64="no">
+                                        <File Id="fil2764B2B0FCC5D6CBE639FCBE0F9CFFF0" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\GenICam\bin\Win32_i86\genapi\generic\xerces-c_MD_VC80_v2_7.dll" />
+                                    </Component>
+                                    <Component Id="cmp8D42D1F7718DFDF154842410719EFF64" Guid="{4C1EBF72-543D-4BC6-8C13-705CB3B8BFBE}" Win64="no">
+                                        <File Id="filB2AE432C1D4A0AB3769A94997975504F" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\GenICam\bin\Win32_i86\genapi\generic\XMLLoader_MD_VC100_v2_3.dll" />
+                                    </Component>
+                                    <Component Id="cmp50E159C60EF6AFA346B226B92336FBB0" Guid="{B67B30CC-EFC2-478A-9BB6-825AC9A7E765}" Win64="no">
+                                        <File Id="fil969E3F18F7485B28351D5243A8C7FA11" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\GenICam\bin\Win32_i86\genapi\generic\XMLLoader_MD_VC80_v2_2.dll" />
+                                    </Component>
+                                </Directory>
+                            </Directory>
+                        </Directory>
+                    </Directory>
+                    <Directory Id="dirCA961F3AFC4781B89ACD4CF136A295A4" Name="log">
+                        <Directory Id="dir98ABBAC281E88E5FF0A06F2C32DAB181" Name="config">
+                            <Component Id="cmp022390C16BE7AEED7C0591FC90C9055B" Guid="{52500126-87E6-472A-8EC3-9C8939A914EE}" Win64="no">
+                                <File Id="fil36A18B29DA4689CB5FCB8B84EE4D7765" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\GenICam\log\config\DebugLogging.properties" />
+                            </Component>
+                            <Component Id="cmpCAC62CB1235E639E0FB5FD69C577B23A" Guid="{553F98A4-3B3B-4663-B9BD-1C23CBC627EB}" Win64="no">
+                                <File Id="fil3F0836711972B06663EDFC7965E838D9" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\GenICam\log\config\DefaultLogging.properties" />
+                            </Component>
+                            <Component Id="cmp21E6E8CE620E5C6CB495D59358D57474" Guid="{7AF1EAB5-2F84-4CC8-8881-1B3D1B53E037}" Win64="no">
+                                <File Id="fil719E31E7FF1264C70FA46CFDC497BE35" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\GenICam\log\config\TestLogging.properties" />
+                            </Component>
+                        </Directory>
+                    </Directory>
+                    <Directory Id="dirC49881B1DE245182C2E418D7FACC1FAE" Name="xml">
+                        <Directory Id="dir39376329ED031A33453C6FCBA10FF848" Name="GenApi">
+                            <Component Id="cmp9C9A17D28E36B053B6188C17BBC9F0A0" Guid="{1CF925E6-134F-484F-93E9-35EA77535C8F}" Win64="no">
+                                <File Id="filEB049A52E12D807FDED8DFF204849D12" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\GenICam\xml\GenApi\ExtractTree_1_v1.1.xsl" />
+                            </Component>
+                            <Component Id="cmpDE4FD7A7D7048F9334F7E093CF8CEF35" Guid="{D2011E5D-5890-4E9C-99C4-F8BB91F81225}" Win64="no">
+                                <File Id="fil5AE7E3A87695C0E82ACF509541AD0BB5" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\GenICam\xml\GenApi\ExtractTree_2_v1.1.xsl" />
+                            </Component>
+                            <Component Id="cmp18BEE4EED64413B9F5333C1D04488574" Guid="{D69B70CB-2B32-4C5F-9213-16642730F3E9}" Win64="no">
+                                <File Id="fil36FE07449E2F28147AA2A6A29AF79745" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\GenICam\xml\GenApi\GenApiMerge.xsl" />
+                            </Component>
+                            <Component Id="cmp6A499B1B5C00AAA47CFDCE8D240B99E1" Guid="{CFCDEBE5-C5D7-4A86-BFE9-42FA5797C413}" Win64="no">
+                                <File Id="filBF6D45EF8CD24368575D81E166EC156F" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\GenICam\xml\GenApi\GenApiSchema_Version_1_0.xsd" />
+                            </Component>
+                            <Component Id="cmp5A5D52CD5498C285F5EF0942D36D2538" Guid="{73FFD7B8-0F15-4C66-807F-7BC5FECE2364}" Win64="no">
+                                <File Id="filE6FEB13CD03A48E4FD26426DFEB1547D" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\GenICam\xml\GenApi\GenApiSchema_Version_1_0_Runtime.xsd" />
+                            </Component>
+                            <Component Id="cmp79F9DAD7D3CA6E2E3B5127558BD03629" Guid="{1FA73DB9-F867-463F-AF7C-76FC95EFF0A7}" Win64="no">
+                                <File Id="filD5C1699B3EBD0F5A0778A5CC6900F68F" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\GenICam\xml\GenApi\GenApiSchema_Version_1_1.xsd" />
+                            </Component>
+                            <Component Id="cmpB3A4D364995D4FB2DD940D14480E259C" Guid="{CCF4743E-8A3D-41A2-B85D-215E8C99768E}" Win64="no">
+                                <File Id="filF8DB20DF59126F87397D2AF068680349" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\GenICam\xml\GenApi\GenApiSchema_Version_1_1_Runtime.xsd" />
+                            </Component>
+                            <Component Id="cmp5354C36020D00386707A859838881D56" Guid="{D6807E7B-5874-44D9-8B8A-5A46AEDB5288}" Win64="no">
+                                <File Id="fil9DD708CB15D0CAAEA4F1F37B97412D22" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\GenICam\xml\GenApi\GenApi_Params_h.xsl" />
+                            </Component>
+                            <Component Id="cmp290DA5B0AF66D9455838226B2641863D" Guid="{4449140F-5422-42CF-A2B8-8C9009EA3BF0}" Win64="no">
+                                <File Id="filF2C15FCF7CF38637B60EC154344CEB44" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\GenICam\xml\GenApi\GenApi_Ptr_h.xsl" />
+                            </Component>
+                            <Component Id="cmpABE83DDAD5826BD08206815C5CB2059E" Guid="{5008E19E-666D-4353-AEC1-AEE4E980D1F4}" Win64="no">
+                                <File Id="filA1375136BC6805264E05C11DF787AB05" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\GenICam\xml\GenApi\PreProcess_1.xsl" />
+                            </Component>
+                            <Component Id="cmp95828BE8F557193B4CA41BF15801A492" Guid="{9937ADE5-1516-4CFE-940E-CAF84CC0D80E}" Win64="no">
+                                <File Id="fil46F13EBAFA7BA621ECF3E4D7720F4650" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\GenICam\xml\GenApi\PreProcess_2.xsl" />
+                            </Component>
+                            <Component Id="cmp6E8BE58FF4EAA69B5117407C75C5C642" Guid="{0861D829-2A04-4C18-8529-1807FCC7366B}" Win64="no">
+                                <File Id="filF801973E95564F72A8120BBBE06D2752" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\GenICam\xml\GenApi\PreProcess_3.xsl" />
+                            </Component>
+                            <Component Id="cmpEA992C55229404DC7B4B6760B5BCA747" Guid="{7FE8D331-3A27-4917-A889-B211EA826077}" Win64="no">
+                                <File Id="filAF7C47A65AE08A617E41981B7D12CEBA" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\GenICam\xml\GenApi\PreProcess_4.xsl" />
+                            </Component>
+                        </Directory>
+                    </Directory>
+                </Directory>
+                <Directory Id="dirCC7431863AC7A894A3DED5FA2E95DD2C" Name="log4cxx">
+                    <Component Id="cmpFF00C8169BBA457A5E0CDE0767474A63" Guid="{A16FD73B-4AEA-4721-9E1B-D66F9189815B}" Win64="no">
+                        <File Id="filA9EECBE6A635883B1ED7C5B7C7E873A8" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\log4cxx\default.logcfg" />
+                    </Component>
+                    <Directory Id="dir0D55D40647113C46C12A943E1A9BD9D7" Name="Debug">
+                        <Component Id="cmpA9DC76D3542FBC175B1D9C592DFC50BE" Guid="{75569D11-6E6D-458F-8722-28A427371C6D}" Win64="no">
+                            <File Id="filEF9719A9375C65ADF5C6B1743894D637" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\log4cxx\Debug\log4cxx.dll" />
+                        </Component>
+                    </Directory>
+                    <Directory Id="dir9B57666DFDAE250C4C72F10F550059FA" Name="Release">
+                        <Component Id="cmpA11FC6E7FA614D3390B0D8168BC37246" Guid="{EF8742F4-E914-445E-BD40-128D1DD91951}" Win64="no">
+                            <File Id="fil33111492AF430298286E20C6762BD316" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\log4cxx\Release\log4cxx.dll" />
+                        </Component>
+                    </Directory>
+                    <Directory Id="dirE6C7A1ACA8552C91E9BC92A211E54B32" Name="x64">
+                        <Directory Id="dir39801AAA4FBDF5DC93E4D3D36A8C52D1" Name="Debug">
+                            <Component Id="cmpEB467BBB570ADC51C9DA0ACFFF98F255" Guid="{41F53B38-DED1-42A3-BA25-100D2E0A6568}" Win64="no">
+                                <File Id="fil6DA1FB98DA99668EF0C2E54C2BE8E8E8" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\log4cxx\x64\Debug\log4cxx.dll" />
+                            </Component>
+                        </Directory>
+                        <Directory Id="dir3BE48AF57080DBB5E7ED79BC8B58015A" Name="Release">
+                            <Component Id="cmpB41972FA28BE94FD273CA498BD54AA39" Guid="{D9D54C9D-99F9-42E2-84BB-5FF21737A79C}" Win64="no">
+                                <File Id="fil96FFFF8AF89D41D87472E02162433A71" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\log4cxx\x64\Release\log4cxx.dll" />
+                            </Component>
+                        </Directory>
+                    </Directory>
+                </Directory>
+                <Directory Id="dir73D45D6505C7A3D2B34BBA4472DC5B2B" Name="NDIS5">
+                    <Component Id="cmp90F5EADD2AF207A66AFAEB2C4E0F6A62" Guid="{969ACD63-7366-460F-9203-1448A3A2A1C8}" Win64="no">
+                        <File Id="fil2C0F5CDC64C281953C8DADA1B9D6B003" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\NDIS5\EbNotifyObjectUniversalPro.dll" />
+                    </Component>
+                    <Component Id="cmpC7DDEECD208CCDC5BB14FAD4DDCBFC2B" Guid="{625713B7-BD4C-4A96-B5D6-236CAD7F169E}" Win64="no">
+                        <File Id="fil1BFB5AEC3A3607BC2616F38F396A32A5" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\NDIS5\ebuniversalpro.cat" />
+                    </Component>
+                    <Component Id="cmp7562C3EC3942EC01F6ACCB69D0FABA31" Guid="{06889D85-9270-4DD1-8EA0-2855CE5E06FB}" Win64="no">
+                        <File Id="fil30828889EDFDE85C7813D584F57C1AF7" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\NDIS5\ebUniversalPro.inf" />
+                    </Component>
+                    <Component Id="cmp3EC07094743413D76A342365C6346A45" Guid="{D468FE34-2743-4243-8F8A-4FB0C8E1B76F}" Win64="no">
+                        <File Id="filBEBFE1A62236EA68D091E460E40CD143" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\NDIS5\ebUniversalPro.sys" />
+                    </Component>
+                    <Component Id="cmp86CD35FDD5A2C72423B2ED91CADAC224" Guid="{A8517AEC-40FA-4928-85FA-1A686A25E15B}" Win64="no">
+                        <File Id="filE04ABFBB2DA52EDAFDBFB4E03A7FF829" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\NDIS5\ebuniversalpro_mp.cat" />
+                    </Component>
+                    <Component Id="cmp482FD181169CEBC2076D6F29D9D2A66E" Guid="{CD8EDBDA-1F7A-495C-A97A-2DC7883428D2}" Win64="no">
+                        <File Id="filD7E1CBFCF3F7A61CBE8BEF5B9FB8E452" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\NDIS5\ebUniversalPro_mp.inf" />
+                    </Component>
+                </Directory>
+                <Directory Id="dirC2EFC0893E098CC114914584C1EAF857" Name="NDIS6">
+                    <Component Id="cmp397A28ED4BE0B2A6133FE13249D09AE3" Guid="{646A3631-B4C1-458C-A3CB-4A780838A6A1}" Win64="no">
+                        <File Id="filD7C1F65C0865B73EBA5903B866561A01" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\NDIS6\EbNotifyObjectUniversalPro.dll" />
+                    </Component>
+                    <Component Id="cmp5A30D7AE11716A1732273AAD68B52B10" Guid="{0DC33908-31A8-4F14-8844-904E0B2701C6}" Win64="no">
+                        <File Id="filC81BA1A54781B3186CE5FB13D1480A09" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\NDIS6\ebuniversalpro.cat" />
+                    </Component>
+                    <Component Id="cmp67F91A5113C01C3E83A182314CECFF7B" Guid="{D4EE23C6-966D-485D-8B82-ACA22010B096}" Win64="no">
+                        <File Id="filDFDD49632528EACB93D5267B8EAD1CE9" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\NDIS6\ebUniversalPro.inf" />
+                    </Component>
+                    <Component Id="cmp92428C914F0612A4AF5FFD2C5DE60511" Guid="{F0869180-EF4D-4D3B-8416-15C1E2D0F17B}" Win64="no">
+                        <File Id="fil5E3376DF7F420D097A8DFC238A8C2E28" KeyPath="yes" Source="$(var.SrcPleora86)\eBUS SDK\NDIS6\ebUniversalPro.sys" />
+                    </Component>
+                </Directory>
+            </Directory>
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <ComponentGroup Id="Pleora86">
+            <ComponentRef Id="cmpC97E9BAA6003C3E290F26DFC34F87959" />
+            <ComponentRef Id="cmpB442A945B8FE25C4555F44AD92113C0F" />
+            <ComponentRef Id="cmp90FC72BB21A33EC61F14866CC7FE82B8" />
+            <ComponentRef Id="cmp0BFE942312BDAF165C8A865B50CEAA39" />
+            <ComponentRef Id="cmp89DA5759EFA3C7CE22DC8560CACDEA32" />
+            <ComponentRef Id="cmpE6302B34B8F3C507181E628F3F20B6C4" />
+            <ComponentRef Id="cmp75BA3DCE1DB615AB9520B0A1E3EB6E65" />
+            <ComponentRef Id="cmpB45332E676E47501A21E343FE8A1EEF7" />
+            <ComponentRef Id="cmp41F32C146A602C4C8F4F45AC9A9EDA4B" />
+            <ComponentRef Id="cmp25157C0FF70EBC74CF54C330E9D05270" />
+            <ComponentRef Id="cmp11BC9B2ED2521AD9594031F3B2BD26FE" />
+            <ComponentRef Id="cmp11D8F7B1A1518A7FE24D2C67C0516FB0" />
+            <ComponentRef Id="cmpC8598774942C48835FA724D0BCFB7F95" />
+            <ComponentRef Id="cmp485B76472AB0048BD5B8E7F7FD9EA490" />
+            <ComponentRef Id="cmpFC530930A3BFC3DECA5BD257D8A4166D" />
+            <ComponentRef Id="cmp3B0B7E42F1A92D2957CBBADE06620859" />
+            <ComponentRef Id="cmp1A4790016FBCAF7A9A65E9B86AF73C82" />
+            <ComponentRef Id="cmp8772FC5642DECD08375395308148E60B" />
+            <ComponentRef Id="cmp4771C7931AC45017FBF7CA4E94E4B6AB" />
+            <ComponentRef Id="cmp4779D892DE72100A52B5D5E2ACCF2F6C" />
+            <ComponentRef Id="cmpB4143EB87E0003068DB80651A3B95488" />
+            <ComponentRef Id="cmp25BE53DC300DC749B344546F534DF49A" />
+            <ComponentRef Id="cmp7C62F8623ED580E659BDB0F3F8F3CC64" />
+            <ComponentRef Id="cmp8832E6C8B88FFAF93350BC9D03C38659" />
+            <ComponentRef Id="cmpFDB850AF2FB37BFB774B1EFE6D366727" />
+            <ComponentRef Id="cmp97D74D2C552FEA13D2D3C36A176D2B2B" />
+            <ComponentRef Id="cmp2495245B915EA75F07CF8BA00C1B93D8" />
+            <ComponentRef Id="cmpA69065E5F9574F6E44C0C95F28381828" />
+            <ComponentRef Id="cmp30863305C5B07D300D9F91A6000444E6" />
+            <ComponentRef Id="cmp30B22494D7D740C6AC95766CCAE38EC8" />
+            <ComponentRef Id="cmp86D145C9239F531CF75A3508E67EF73B" />
+            <ComponentRef Id="cmpC13759B3BDF966E40B369032E8C95326" />
+            <ComponentRef Id="cmp0C4FAAFF9CEBCD75F02E49DDB7C2E3C2" />
+            <ComponentRef Id="cmp9DD10619D498292B154E6BF74F9D936A" />
+            <ComponentRef Id="cmp0DF5E9839BB5040826496510E97E51F8" />
+            <ComponentRef Id="cmpB5E2DC7EB007DE17DF716166DEB66B24" />
+            <ComponentRef Id="cmp7F4C0272F017BA72B47CE22FDF98906B" />
+            <ComponentRef Id="cmpA519B8B6384169DEFC8661BA1BB6BAD0" />
+            <ComponentRef Id="cmp3FED355D51AB03E8A0B4470161B736F8" />
+            <ComponentRef Id="cmpCA6267BA0551B04B2D1CC9CAC0653AAD" />
+            <ComponentRef Id="cmp7AF2BDA06EC7BC72E2679278F03D5D6B" />
+            <ComponentRef Id="cmp6D8AE6B5948D0D781E5FC0F2157C5E3A" />
+            <ComponentRef Id="cmpB6749CABE9213D954010835DBCB8C3C0" />
+            <ComponentRef Id="cmp2F48FEF4A7E9F02336569067C260742D" />
+            <ComponentRef Id="cmp72E8613980143B70698E940B420FA334" />
+            <ComponentRef Id="cmp4C14220394D3302B90839E6480146F98" />
+            <ComponentRef Id="cmpDDC873E0A960639E33652DC7E27FA810" />
+            <ComponentRef Id="cmpDB9F312264F4D168264E1E4E52E88E55" />
+            <ComponentRef Id="cmp87A2F0CDDABF804BF279114645292FB6" />
+            <ComponentRef Id="cmp1F1D6DA5BDA8FBA11B4EF61C92F85664" />
+            <ComponentRef Id="cmp48A2B461F2EFC7C6F5F8931E83524343" />
+            <ComponentRef Id="cmpE13B45493B768E0B43C1DEC53C7ECD74" />
+            <ComponentRef Id="cmp8BFB151096E3AAAF3EEBAB440DA2EA32" />
+            <ComponentRef Id="cmp89B36D60C06402DBA454ABBEEE8BFBD8" />
+            <ComponentRef Id="cmpCD2DB68FF771CACD7C9358EF7BFD25F6" />
+            <ComponentRef Id="cmpD60B860B5A9304463C7AF906DF89270C" />
+            <ComponentRef Id="cmpDCB1FF4025F87AC538AE5FBBE9B98A62" />
+            <ComponentRef Id="cmpD9EF971ECDE6499D0AEB31CCA3DFC5D2" />
+            <ComponentRef Id="cmpEB8B893334314670F38A6E110ADC384A" />
+            <ComponentRef Id="cmp734C417BEEC020D0780233E72F88539E" />
+            <ComponentRef Id="cmpEB571E078BDAF14EF1605433A02884D7" />
+            <ComponentRef Id="cmp8C9667DD6C016FE6AD5B8C449452D152" />
+            <ComponentRef Id="cmp85062DF04D7F633E82832449A806E391" />
+            <ComponentRef Id="cmpC9260729D6B12B00ED37153607D10A6B" />
+            <ComponentRef Id="cmp12EAD0E47219C652E242FF3AA6EBD22E" />
+            <ComponentRef Id="cmp1AB4F2D60592E0A826109D8668D4D21B" />
+            <ComponentRef Id="cmpD4244529E13BEC261AF955B5BF5C727A" />
+            <ComponentRef Id="cmpED1EC984F552A44AE08BB1A8ECE9D274" />
+            <ComponentRef Id="cmp71B14A01DB8B1A1129598608E3D4D3C4" />
+            <ComponentRef Id="cmp46A79B562AC0C5CEDA2DC132A6DD25D9" />
+            <ComponentRef Id="cmp6A4F15AEBCAC0E6AA9B2E5B8123C187B" />
+            <ComponentRef Id="cmp31805DC217CA8191D07C2C102D5D639E" />
+            <ComponentRef Id="cmp513577D9FE6021FC69A75AC053254B10" />
+            <ComponentRef Id="cmp95489816A32260EC3F3AD93E472C1A1F" />
+            <ComponentRef Id="cmp2D8F151555D8135012CB3E4E6DA7C21A" />
+            <ComponentRef Id="cmpD7D185EB492A485B4D3E1C8974BA6366" />
+            <ComponentRef Id="cmpFAA7ED0FC295B496FE4EE4BE2F7EA3A8" />
+            <ComponentRef Id="cmpDB715E61C85F0F328602F2BD4F113DEA" />
+            <ComponentRef Id="cmp9C6FBEAAFBDE08788813443BED2651E7" />
+            <ComponentRef Id="cmpA025CF7FDD558C042CCCCCE283CC7233" />
+            <ComponentRef Id="cmpF8B1A3477FF4550BED49AB2413F41C69" />
+            <ComponentRef Id="cmp9041C29B085D09E7DEAB42FBE3318E40" />
+            <ComponentRef Id="cmpA93C5CA4FB7903CC832036289E2E4973" />
+            <ComponentRef Id="cmp2C83A3B81CB344A50D4FE7A9435857ED" />
+            <ComponentRef Id="cmp93FDCEED22A6CEF596EFA81D4A00D0C1" />
+            <ComponentRef Id="cmp8D42D1F7718DFDF154842410719EFF64" />
+            <ComponentRef Id="cmp50E159C60EF6AFA346B226B92336FBB0" />
+            <ComponentRef Id="cmp022390C16BE7AEED7C0591FC90C9055B" />
+            <ComponentRef Id="cmpCAC62CB1235E639E0FB5FD69C577B23A" />
+            <ComponentRef Id="cmp21E6E8CE620E5C6CB495D59358D57474" />
+            <ComponentRef Id="cmp9C9A17D28E36B053B6188C17BBC9F0A0" />
+            <ComponentRef Id="cmpDE4FD7A7D7048F9334F7E093CF8CEF35" />
+            <ComponentRef Id="cmp18BEE4EED64413B9F5333C1D04488574" />
+            <ComponentRef Id="cmp6A499B1B5C00AAA47CFDCE8D240B99E1" />
+            <ComponentRef Id="cmp5A5D52CD5498C285F5EF0942D36D2538" />
+            <ComponentRef Id="cmp79F9DAD7D3CA6E2E3B5127558BD03629" />
+            <ComponentRef Id="cmpB3A4D364995D4FB2DD940D14480E259C" />
+            <ComponentRef Id="cmp5354C36020D00386707A859838881D56" />
+            <ComponentRef Id="cmp290DA5B0AF66D9455838226B2641863D" />
+            <ComponentRef Id="cmpABE83DDAD5826BD08206815C5CB2059E" />
+            <ComponentRef Id="cmp95828BE8F557193B4CA41BF15801A492" />
+            <ComponentRef Id="cmp6E8BE58FF4EAA69B5117407C75C5C642" />
+            <ComponentRef Id="cmpEA992C55229404DC7B4B6760B5BCA747" />
+            <ComponentRef Id="cmpFF00C8169BBA457A5E0CDE0767474A63" />
+            <ComponentRef Id="cmpA9DC76D3542FBC175B1D9C592DFC50BE" />
+            <ComponentRef Id="cmpA11FC6E7FA614D3390B0D8168BC37246" />
+            <ComponentRef Id="cmpEB467BBB570ADC51C9DA0ACFFF98F255" />
+            <ComponentRef Id="cmpB41972FA28BE94FD273CA498BD54AA39" />
+            <ComponentRef Id="cmp90F5EADD2AF207A66AFAEB2C4E0F6A62" />
+            <ComponentRef Id="cmpC7DDEECD208CCDC5BB14FAD4DDCBFC2B" />
+            <ComponentRef Id="cmp7562C3EC3942EC01F6ACCB69D0FABA31" />
+            <ComponentRef Id="cmp3EC07094743413D76A342365C6346A45" />
+            <ComponentRef Id="cmp86CD35FDD5A2C72423B2ED91CADAC224" />
+            <ComponentRef Id="cmp482FD181169CEBC2076D6F29D9D2A66E" />
+            <ComponentRef Id="cmp397A28ED4BE0B2A6133FE13249D09AE3" />
+            <ComponentRef Id="cmp5A30D7AE11716A1732273AAD68B52B10" />
+            <ComponentRef Id="cmp67F91A5113C01C3E83A182314CECFF7B" />
+            <ComponentRef Id="cmp92428C914F0612A4AF5FFD2C5DE60511" />
+        </ComponentGroup>
+    </Fragment>
+</Wix>

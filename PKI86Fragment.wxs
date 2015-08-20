@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <?define SrcPKI86 = C:\Users\plagon\Documents\Git-Workspace\WixSetup\DexelaDetectorSetup\PerkinElmer\x86?>
+    <Fragment>
+        <DirectoryRef Id="PKI86">
+            <Directory Id="dir48405C63587AF18AA7E663A5F9ECF6A0" Name="DexelaDetectorAPI">
+                <Component Id="cmpA7C00268F66F7F005B338666A361459A" Guid="{86976E64-541F-407B-A4D7-260C0D25214A}" Win64="no">
+                    <File Id="filCE29487AAD5811ED138A3BA19A715456" KeyPath="yes" Source="$(var.SrcPKI86)\DexelaDetectorAPI\BadPixelCorrection.dll" />
+                </Component>
+                <Component Id="cmp34263DA3F4AB8D17B836175E465A9C9F" Guid="{F61D6942-566D-49AF-BCF7-0E5126440FC9}" Win64="no">
+                    <File Id="filEF360CD5BFEB5B638227FA5877D5667C" KeyPath="yes" Source="$(var.SrcPKI86)\DexelaDetectorAPI\BusScanner-d.dll" />
+                </Component>
+                <Component Id="cmp47826317F181BC820420798C7B87B3DE" Guid="{F5342EA9-75DC-4E2D-8DCD-B6224AB9A32A}" Win64="no">
+                    <File Id="filB90FE369B43DE1B50E778F5F73BDBF89" KeyPath="yes" Source="$(var.SrcPKI86)\DexelaDetectorAPI\BusScanner.dll" />
+                </Component>
+                <Component Id="cmp965505D504B0991F5F647816AB6BF524" Guid="{0CA3A77D-7D57-4025-A696-1015B301F5BE}" Win64="no">
+                    <File Id="fil531D36C7FEE53D35005999DFC2D36BFC" KeyPath="yes" Source="$(var.SrcPKI86)\DexelaDetectorAPI\BusScannerC-d.dll" />
+                </Component>
+                <Component Id="cmp6DF5C68614DD028969B1C227192E47D2" Guid="{1C94BE1C-EB24-4585-9085-994A78DEC12A}" Win64="no">
+                    <File Id="fil10E9ABC89021BFCF9F87308D7FC28664" KeyPath="yes" Source="$(var.SrcPKI86)\DexelaDetectorAPI\BusScannerC.dll" />
+                </Component>
+                <Component Id="cmp1F4923C02ED1B0C823AF9B42A8D60B7C" Guid="{1753AC74-6338-4463-BD4C-46B48D0BB9C9}" Win64="no">
+                    <File Id="filF3E2C8EBE672AB8D8E5E9B052136C028" KeyPath="yes" Source="$(var.SrcPKI86)\DexelaDetectorAPI\BusScanner_NET-d.dll" />
+                </Component>
+                <Component Id="cmp1F35853D7DB9B1A49DBE71275165BE5B" Guid="{A07F2930-F456-4565-A766-EAF2FC5A7AB3}" Win64="no">
+                    <File Id="filFF01FF33F2C2EC62F528F8CB3AB53D1A" KeyPath="yes" Source="$(var.SrcPKI86)\DexelaDetectorAPI\BusScanner_NET.dll" />
+                </Component>
+                <Component Id="cmp7E914A1236AE5EA98D5118AC8E72BBC2" Guid="{61259712-E8FB-4A7D-8A35-EF4B37DF5293}" Win64="no">
+                    <File Id="fil4D6F3A0222C8026A26859CD1A5F4B215" KeyPath="yes" Source="$(var.SrcPKI86)\DexelaDetectorAPI\DexDefs_NET-d.dll" />
+                </Component>
+                <Component Id="cmpBB49017A042F8F96D7543836BF69DB24" Guid="{73212131-1D41-4C40-B72E-EFBD57C51E49}" Win64="no">
+                    <File Id="fil49A40D924D40F26C6CEF2B8323A34E5D" KeyPath="yes" Source="$(var.SrcPKI86)\DexelaDetectorAPI\DexDefs_NET.dll" />
+                </Component>
+                <Component Id="cmpC46B2A1747259E95FF930B7C1B7C5F4D" Guid="{6E014122-EEF8-40DD-AEC0-F20E420AD8D6}" Win64="no">
+                    <File Id="fil66A812A1262113C8F860BC92B34E5B35" KeyPath="yes" Source="$(var.SrcPKI86)\DexelaDetectorAPI\DexelaDetector-d.dll" />
+                </Component>
+                <Component Id="cmpAE935149C950D3CBEDC7A30EE7478687" Guid="{594A8EB0-F856-472F-8963-A14BC24104E7}" Win64="no">
+                    <File Id="fil1B0E42E66F2A8C2D389EDB389920E201" KeyPath="yes" Source="$(var.SrcPKI86)\DexelaDetectorAPI\DexelaDetector.dll" />
+                </Component>
+                <Component Id="cmp30869495ACC8A70C9492F4A25F529BA6" Guid="{3BE96E2B-B377-443F-B0EC-585C56DEB7C9}" Win64="no">
+                    <File Id="fil6CDAD0D640AD686A89BBA2B1335FC640" KeyPath="yes" Source="$(var.SrcPKI86)\DexelaDetectorAPI\DexelaDetectorC-d.dll" />
+                </Component>
+                <Component Id="cmp3517474F57209BB65ABEA22EA61117B2" Guid="{9DF027FC-7356-4A77-B180-BE8BDAAE4AF1}" Win64="no">
+                    <File Id="fil13F360B5D9E5410A4F8556FD00A90963" KeyPath="yes" Source="$(var.SrcPKI86)\DexelaDetectorAPI\DexelaDetectorC.dll" />
+                </Component>
+                <Component Id="cmp8E782D5C8AA7809494EF0D872FDAE74F" Guid="{F41C7CA2-3FED-493D-BC2B-31BBC76F1E80}" Win64="no">
+                    <File Id="fil366A4D14C7FBBBE3126C8D964FB4C023" KeyPath="yes" Source="$(var.SrcPKI86)\DexelaDetectorAPI\DexelaDetector_NET-d.dll" />
+                </Component>
+                <Component Id="cmp4A9A1AFCF1374CCBBFEE439DA15B481F" Guid="{62DD9892-2C0D-40B8-9973-B651B926AEBB}" Win64="no">
+                    <File Id="fil14AD89C16CFCAE11FDD90BF128081485" KeyPath="yes" Source="$(var.SrcPKI86)\DexelaDetectorAPI\DexelaDetector_NET.dll" />
+                </Component>
+                <Component Id="cmp0AC0E93CAEC0BDDE3728A02ADFF15690" Guid="{52CC61FC-5C3A-48FD-A785-3F18E6CF5983}" Win64="no">
+                    <File Id="fil8D07AFC2D344C5A28CA7CB7CBB872481" KeyPath="yes" Source="$(var.SrcPKI86)\DexelaDetectorAPI\DexelaException-d.dll" />
+                </Component>
+                <Component Id="cmpD1D4FF59271B82E10C4CDEC098AF853E" Guid="{0C7AC268-827B-4CE2-8BFF-DA37C95DF354}" Win64="no">
+                    <File Id="filF24ED53EDCB6F8DAA4ECA94D2C2EA16E" KeyPath="yes" Source="$(var.SrcPKI86)\DexelaDetectorAPI\DexelaException.dll" />
+                </Component>
+                <Component Id="cmp7511D9AF0DBA53F7FBCBE614B9F21EF7" Guid="{A2413BA8-BC4C-4279-BA1F-C10C17DF40CD}" Win64="no">
+                    <File Id="fil827E0BAB86CFCCBFAE3E718A84781D6D" KeyPath="yes" Source="$(var.SrcPKI86)\DexelaDetectorAPI\DexelaException_NET-d.dll" />
+                </Component>
+                <Component Id="cmp8EB5D81D0DD13B835ABE15AE23EE9B86" Guid="{97FFFBA6-107C-4403-9176-F7E77E2CC900}" Win64="no">
+                    <File Id="fil7C4FCD5F84CC9AA8B7E4E1968DE662EE" KeyPath="yes" Source="$(var.SrcPKI86)\DexelaDetectorAPI\DexelaException_NET.dll" />
+                </Component>
+                <Component Id="cmp5BFB285490F80D9408CC1857FB606B5A" Guid="{7B9570CA-0F01-4238-BE43-E5D6A13E2F48}" Win64="no">
+                    <File Id="fil8177A673B722EB34B3A09F1196079B05" KeyPath="yes" Source="$(var.SrcPKI86)\DexelaDetectorAPI\DexImage-d.dll" />
+                </Component>
+                <Component Id="cmp605AEC4C3854617691B23430F68F923B" Guid="{3B28D435-18D1-4E12-8D03-A6CAF70294B9}" Win64="no">
+                    <File Id="fil658961DC50AF216F0F4727E3289B1480" KeyPath="yes" Source="$(var.SrcPKI86)\DexelaDetectorAPI\DexImage.dll" />
+                </Component>
+                <Component Id="cmp7EAA0CF975BC240C550428986C7162B5" Guid="{B0DA5AA5-84E0-4274-A477-CC45DA17AC6B}" Win64="no">
+                    <File Id="filB9B06EEA4F0048D9A36FB246C0A77DA1" KeyPath="yes" Source="$(var.SrcPKI86)\DexelaDetectorAPI\DexImageC-d.dll" />
+                </Component>
+                <Component Id="cmp91100E6A2CBC347567853A0D75DBC8CC" Guid="{1DD25CFB-DB7F-4D4C-BDCC-C3CEC1AAFE04}" Win64="no">
+                    <File Id="filA406BFA93904B737792A57C30DDD2B79" KeyPath="yes" Source="$(var.SrcPKI86)\DexelaDetectorAPI\DexImageC.dll" />
+                </Component>
+                <Component Id="cmp604EE5371FFC8FD2D3AFED5B54AD06D3" Guid="{327FF8B3-CE15-4BC8-B53B-EB4F0753DBB8}" Win64="no">
+                    <File Id="fil57D53E904B8951107662976BC39DF2AA" KeyPath="yes" Source="$(var.SrcPKI86)\DexelaDetectorAPI\DexImage_NET-d.dll" />
+                </Component>
+                <Component Id="cmpEF701407B0D3CDFBD51B66F2E0236ED3" Guid="{56522029-EBF6-4431-AFCC-2826AC36B5EB}" Win64="no">
+                    <File Id="filE7739DBE28CA94FB60A675118E1D63C5" KeyPath="yes" Source="$(var.SrcPKI86)\DexelaDetectorAPI\DexImage_NET.dll" />
+                </Component>
+                <Component Id="cmp6B7044D57F194E0888F142DB6A2128B1" Guid="{406FE099-ABDB-4930-92AA-13AB0308B3F6}" Win64="no">
+                    <File Id="fil4CED48F597B4AC4A050C65310CF6C942" KeyPath="yes" Source="$(var.SrcPKI86)\DexelaDetectorAPI\InternalUtils-d.dll" />
+                </Component>
+                <Component Id="cmp0C9369B349E25FBA0CA43816F66BE058" Guid="{948223DE-3440-471F-A1AC-9880827DE463}" Win64="no">
+                    <File Id="filEB5343650C959841E39FE8F6F73183EC" KeyPath="yes" Source="$(var.SrcPKI86)\DexelaDetectorAPI\InternalUtils.dll" />
+                </Component>
+                <Component Id="cmp1F6FE7DB72343891FE992348328D2192" Guid="{A59A2F88-9BC8-4A55-8D74-1EFFA7524184}" Win64="no">
+                    <File Id="fil822A5690E321E0643CA7A3E2B9E60D97" KeyPath="yes" Source="$(var.SrcPKI86)\DexelaDetectorAPI\XCLIBWNT.dll" />
+                </Component>
+                <Directory Id="dirEB0952CC306A11CEDB48617D66CA6A42" Name="GAC">
+                    <Component Id="cmp30D27885BEA238F671C4C6E291D414F6" Guid="{DAEB6D48-3EB5-445F-A469-438FBDBEC626}" Win64="no">
+                        <File Id="fil30240B02B3F93B2C96F064203100BECC" KeyPath="yes" Source="$(var.SrcPKI86)\DexelaDetectorAPI\GAC\BusScanner_NET-d.dll" Assembly=".net"  />
+                    </Component>
+                    <Component Id="cmp15875CC10EFE02DEC7EC8E39F9BC77DA" Guid="{13D0DA50-9C2D-4A8D-A4DE-6BD99374C5AC}" Win64="no">
+                        <File Id="fil7DB324C84EB2741EC5D15549B37C3915" KeyPath="yes" Source="$(var.SrcPKI86)\DexelaDetectorAPI\GAC\BusScanner_NET.dll" Assembly=".net"  />
+                    </Component>
+                    <Component Id="cmp812CF1187733BD2F1E33D9ED90701E0D" Guid="{C6EC7E5B-2E0E-40DB-811E-00C06BC50CB2}" Win64="no">
+                        <File Id="fil40EF7FDED19C08A4765782BC74CDDA58" KeyPath="yes" Source="$(var.SrcPKI86)\DexelaDetectorAPI\GAC\DexDefs_NET-d.dll" Assembly=".net"  />
+                    </Component>
+                    <Component Id="cmpBB73D5EB9C1F1BC7AA02008527B94994" Guid="{91B15681-8818-4035-A629-BCAB7F57FB65}" Win64="no">
+                        <File Id="fil7382B79F916C5F31CDF84FC3CCB17000" KeyPath="yes" Source="$(var.SrcPKI86)\DexelaDetectorAPI\GAC\DexDefs_NET.dll" Assembly=".net"  />
+                    </Component>
+                    <Component Id="cmp1E2B7E61D23C9498FCBA961DD6ACA851" Guid="{598A7574-8515-4FBC-88A4-986C597EEC93}" Win64="no">
+                        <File Id="fil960747B6A4DAF9DCFB6AD1799CCEE5A3" KeyPath="yes" Source="$(var.SrcPKI86)\DexelaDetectorAPI\GAC\DexelaDetector_NET-d.dll" Assembly=".net"  />
+                    </Component>
+                    <Component Id="cmp6952DB49A790EC338674ED083E1692EC" Guid="{EDA57532-C469-4EB8-91B1-C3CC61692644}" Win64="no">
+                        <File Id="filF1761E7FBB9A600B7B2C5392AF2CCEF7" KeyPath="yes" Source="$(var.SrcPKI86)\DexelaDetectorAPI\GAC\DexelaDetector_NET.dll" Assembly=".net"  />
+                    </Component>
+                    <Component Id="cmp2E392A3BE9B95C5C3D87EB2E1D743296" Guid="{3AAD8772-BAB5-4F41-A40C-6434676C9A71}" Win64="no">
+                        <File Id="fil280B7E7CE18897A7DD7DDBB00844E8EE" KeyPath="yes" Source="$(var.SrcPKI86)\DexelaDetectorAPI\GAC\DexelaException_NET-d.dll" Assembly=".net"  />
+                    </Component>
+                    <Component Id="cmp7B9696ED0BB909D36547940F0E01EBE7" Guid="{12F10E56-BEDF-4119-93C4-08B1777D85BA}" Win64="no">
+                        <File Id="filD36243C6A48449E5E396A2E5B140C6B8" KeyPath="yes" Source="$(var.SrcPKI86)\DexelaDetectorAPI\GAC\DexelaException_NET.dll" Assembly=".net"  />
+                    </Component>
+                    <Component Id="cmp2A2A1618492556268839F72201B47A57" Guid="{9433419C-3DDB-4BF7-BC43-130E179FDFEB}" Win64="no">
+                        <File Id="fil98B324A00D88808DD137BE2B5C834C12" KeyPath="yes" Source="$(var.SrcPKI86)\DexelaDetectorAPI\GAC\DexImage_NET-d.dll" Assembly=".net"  />
+                    </Component>
+                    <Component Id="cmp49A0DC52DF9917B722301C92B719FD54" Guid="{F221B0A8-5835-41C6-9228-6BBCE70B7990}" Win64="no">
+                        <File Id="fil0EFA3E66CEC1AA93431A94B81566B294" KeyPath="yes" Source="$(var.SrcPKI86)\DexelaDetectorAPI\GAC\DexImage_NET.dll" Assembly=".net"  />
+                    </Component>
+                </Directory>
+            </Directory>
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <ComponentGroup Id="pki86">
+            <ComponentRef Id="cmpA7C00268F66F7F005B338666A361459A" />
+            <ComponentRef Id="cmp34263DA3F4AB8D17B836175E465A9C9F" />
+            <ComponentRef Id="cmp47826317F181BC820420798C7B87B3DE" />
+            <ComponentRef Id="cmp965505D504B0991F5F647816AB6BF524" />
+            <ComponentRef Id="cmp6DF5C68614DD028969B1C227192E47D2" />
+            <ComponentRef Id="cmp1F4923C02ED1B0C823AF9B42A8D60B7C" />
+            <ComponentRef Id="cmp1F35853D7DB9B1A49DBE71275165BE5B" />
+            <ComponentRef Id="cmp7E914A1236AE5EA98D5118AC8E72BBC2" />
+            <ComponentRef Id="cmpBB49017A042F8F96D7543836BF69DB24" />
+            <ComponentRef Id="cmpC46B2A1747259E95FF930B7C1B7C5F4D" />
+            <ComponentRef Id="cmpAE935149C950D3CBEDC7A30EE7478687" />
+            <ComponentRef Id="cmp30869495ACC8A70C9492F4A25F529BA6" />
+            <ComponentRef Id="cmp3517474F57209BB65ABEA22EA61117B2" />
+            <ComponentRef Id="cmp8E782D5C8AA7809494EF0D872FDAE74F" />
+            <ComponentRef Id="cmp4A9A1AFCF1374CCBBFEE439DA15B481F" />
+            <ComponentRef Id="cmp0AC0E93CAEC0BDDE3728A02ADFF15690" />
+            <ComponentRef Id="cmpD1D4FF59271B82E10C4CDEC098AF853E" />
+            <ComponentRef Id="cmp7511D9AF0DBA53F7FBCBE614B9F21EF7" />
+            <ComponentRef Id="cmp8EB5D81D0DD13B835ABE15AE23EE9B86" />
+            <ComponentRef Id="cmp5BFB285490F80D9408CC1857FB606B5A" />
+            <ComponentRef Id="cmp605AEC4C3854617691B23430F68F923B" />
+            <ComponentRef Id="cmp7EAA0CF975BC240C550428986C7162B5" />
+            <ComponentRef Id="cmp91100E6A2CBC347567853A0D75DBC8CC" />
+            <ComponentRef Id="cmp604EE5371FFC8FD2D3AFED5B54AD06D3" />
+            <ComponentRef Id="cmpEF701407B0D3CDFBD51B66F2E0236ED3" />
+            <ComponentRef Id="cmp6B7044D57F194E0888F142DB6A2128B1" />
+            <ComponentRef Id="cmp0C9369B349E25FBA0CA43816F66BE058" />
+            <ComponentRef Id="cmp1F6FE7DB72343891FE992348328D2192" />
+            <ComponentRef Id="cmp30D27885BEA238F671C4C6E291D414F6" />
+            <ComponentRef Id="cmp15875CC10EFE02DEC7EC8E39F9BC77DA" />
+            <ComponentRef Id="cmp812CF1187733BD2F1E33D9ED90701E0D" />
+            <ComponentRef Id="cmpBB73D5EB9C1F1BC7AA02008527B94994" />
+            <ComponentRef Id="cmp1E2B7E61D23C9498FCBA961DD6ACA851" />
+            <ComponentRef Id="cmp6952DB49A790EC338674ED083E1692EC" />
+            <ComponentRef Id="cmp2E392A3BE9B95C5C3D87EB2E1D743296" />
+            <ComponentRef Id="cmp7B9696ED0BB909D36547940F0E01EBE7" />
+            <ComponentRef Id="cmp2A2A1618492556268839F72201B47A57" />
+            <ComponentRef Id="cmp49A0DC52DF9917B722301C92B719FD54" />
+        </ComponentGroup>
+    </Fragment>
+</Wix>

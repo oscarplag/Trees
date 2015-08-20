@@ -50,11 +50,6 @@ bool HundredGame::canIWinCustom(vector<int> vals, int total, bool myTurn)
 		return(canIWinCustom(tempList,newTotal,!myTurn));
 		//if(!canIWinCustom(tempList,newTotal,!myTurn))
 		//	return false;
-		/*
-		if(canIWinCustom(tempList,newTotal,!myTurn))
-			return true;
-		else
-			return false;*/
 	}
 	return true;
 }
