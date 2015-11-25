@@ -14,6 +14,7 @@
     <ClCompile Include="WordDistance.cpp" />
     <ClCompile Include="BinarySearchTree.cpp" />
     <ClCompile Include="BuddyBitmap.cpp" />
+    <ClCompile Include="LRUCache.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BTree.h" />
@@ -30,6 +31,7 @@
     <ClInclude Include="WordDistance.h" />
     <ClInclude Include="BinarySearchTree.h" />
     <ClInclude Include="BuddyBitmap.h" />
+    <ClInclude Include="LRUCache.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />

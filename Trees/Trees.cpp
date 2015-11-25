@@ -26,11 +26,12 @@
 #include <boost/algorithm/string.hpp>
 #include "BinarySearchTree.h"
 #include "BuddyBitmap.h"
+#include "LRUCache.h"
 
 
 //#define INDECIES
 //#define COMMONPARENT
-//#define PERMUTATIONS
+#define PERMUTATIONS
 //#define PERMUTATIONS_VECTOR
 //#define HEAP
 //#define GREY_CODE
@@ -52,7 +53,8 @@
 //#define SPLIT_WORDS
 //#define WORD_DIST
 //#define WORD_JUSTIFIER
-#define BUDDY_BITMAP
+//#define BUDDY_BITMAP
+#define LRU_CACHE
 
 
 using namespace std;
@@ -74,6 +76,9 @@ double powerNew(int x, int y);
 double _powerNew(int x, int y);
 vector<int> SelfExcludingProduct(vector<int> &input);
 
+set<string> GetPermutations2(string str);
+void GetPermutations2(string str, int pos, set<string>& strArr);
+void swap2(string& str, int i, int j);
 #ifdef PERMUTATIONS_VECTOR
 vector<string> GetPermutations(string str);
 void GetPermutations(string str,int pos, vector<string>& strArr);
@@ -108,12 +113,43 @@ int _maxPalindrome(string &str, int** dp, int start, int end);
 
 int wordDistance(string sentence, string str1, string str2); 
 
+
+
+unsigned int nextPow2(unsigned int x) {
+	--x;
+	x |= x >> 1;
+	x |= x >> 2;
+	x |= x >> 4;
+	x |= x >> 8;
+	x |= x >> 16;
+	return ++x;
+}
+
+
 int _tmain(int argc, _TCHAR* argv[])
 {
+	
+	unsigned int temp2 = nextPow2(345);
+
 	LARGE_INTEGER frequency;
 	::QueryPerformanceFrequency(&frequency);
 	LARGE_INTEGER t1, t2, t3, t4;
 	double elapsedTime;
+
+#ifdef LRU_CACHE
+	LRUCache myCache(5);
+
+	myCache.set(1,1);
+	myCache.set(2,2);
+	myCache.set(3,3);
+	myCache.set(4,4);
+	myCache.set(5,5);
+	int test = myCache.get(1);
+	myCache.set(6, 6);
+	int test2 = myCache.get(2);
+	int test3 = myCache.get(3);
+
+#endif
 
 #ifdef WORD_DIST
 	vector<string> stringList = vector<string>();
@@ -646,11 +682,12 @@ int _tmain(int argc, _TCHAR* argv[])
 	}
 #else
 	set<string> tempArr = GetPermutations(temp);
-
+	set<string> tempArr2 = GetPermutations2(temp);
 	std::set<string>::iterator it;
-	for (it = tempArr.begin(); it != tempArr.end(); ++it)
+	set<string>::iterator it2;
+	for (it = tempArr.begin(), it2 = tempArr2.begin(); it != tempArr.end() && it2 != tempArr2.end(); ++it, ++it2)
 	{
-		cout << *it << endl;
+		cout << *it <<"    " << *it2 << endl;
 	}
 #endif
 	
@@ -1272,26 +1309,26 @@ vector<string> GetGreyCodeRecurse(int n)
 {
 	vector<string> arr;
 
-	arr = GetGreyCodeRecurse(n,arr);
+arr = GetGreyCodeRecurse(n, arr);
 
-	return arr;
+return arr;
 }
 
 vector<string> GetGreyCodeRecurse(int n, vector<string> arr)
 {
-	if(n == 1)
+	if (n == 1)
 	{
 		arr.push_back("0");
 		arr.push_back("1");
 	}
 	else
 	{
-		arr = GetGreyCodeRecurse(n-1,arr);
+		arr = GetGreyCodeRecurse(n - 1, arr);
 		int curSize = arr.size();
-		for(int i = curSize-1;i>=0;i--)
+		for (int i = curSize - 1; i >= 0; i--)
 		{
-			arr.push_back("1"+arr[i]);
-			arr[i] = "0"+arr[i];
+			arr.push_back("1" + arr[i]);
+			arr[i] = "0" + arr[i];
 		}
 	}
 	return arr;
@@ -1301,21 +1338,21 @@ vector<string> GetGreyCodeRecurse(int n, vector<string> arr)
 vector<string> GetPermutations(string str)
 {
 	vector<string> strArr;
-	GetPermutations(str,0,strArr);
+	GetPermutations(str, 0, strArr);
 	return strArr;
 }
 
-void GetPermutations(string str,int pos, vector<string>& strArr)
+void GetPermutations(string str, int pos, vector<string>& strArr)
 {
-	if(pos == str.size()-1)
+	if (pos == str.size() - 1)
 		strArr.push_back(str);
 	else
 	{
-		for(int i =pos;i<str.size();i++)
+		for (int i = pos; i < str.size(); i++)
 		{
-			swap(str,pos,i);
-			GetPermutations(str,pos+1,strArr);
-			swap(str,pos,i);
+			swap(str, pos, i);
+			GetPermutations(str, pos + 1, strArr);
+			swap(str, pos, i);
 		}
 	}
 	return;
@@ -1324,26 +1361,26 @@ void GetPermutations(string str,int pos, vector<string>& strArr)
 set<string> GetPermutations(string str)
 {
 	set<string> strArr;
-	GetPermutations(str,0,strArr);
+	GetPermutations(str, 0, strArr);
 	return strArr;
 }
-void GetPermutations(string str,int pos, set<string>& strArr)
+void GetPermutations(string str, int pos, set<string>& strArr)
 {
-	if(pos == str.size()-1)
-	{	
-		if(strArr.count(str)!=0)
+	if (pos == str.size() - 1)
+	{
+		if (strArr.count(str) != 0)
 		{
-			cout<< "Duplicate string found: " << str <<endl;
+			cout << "Duplicate string found: " << str << endl;
 		}
 		else
 			strArr.insert(str);
 	}
 	else
 	{
-		for(int i =pos;i<str.size();i++)
+		for (int i = pos; i < str.size(); i++)
 		{
-			swap(str,pos,i);
-			GetPermutations(str,pos+1,strArr);
+			swap(str, pos, i);
+			GetPermutations(str, pos + 1, strArr);
 			//swap(str,pos,i);
 		}
 	}
@@ -1355,6 +1392,43 @@ void swap(string& str, int i, int j)
 	char tmp = str[i];
 	str[i] = str[j];
 	str[j] = tmp;
+}
+
+set<string> GetPermutations2(string str)
+{
+	set<string> permSet;
+	int pos = 0;
+	GetPermutations2(str, pos, permSet);
+	return permSet;
+}
+void GetPermutations2(string str, int pos, set<string>& strArr)
+{
+	if (pos == str.size() - 1)
+	{
+		if (strArr.count(str) != 0)
+			cout << "Duplicate found: " << str << endl;
+		else
+			strArr.insert(str);
+	}
+	else
+	{
+		for (int i = pos; i < str.length(); i++)
+		{
+			swap(str, pos, i);
+			GetPermutations2(str, pos + 1, strArr);
+		}
+	}
+}
+void swap2(string& str, int i, int j)
+{
+	if (i < 0 || j<0 || i>str.length() || j >= str.length())
+	{
+		cout << "Incorrect Swap arguments! i = " << i << ", j = " << j << endl;
+		return;
+	}
+	char temp = str[i];
+	str[i] = str[j];
+	str[j] = temp;
 }
 
 void findIndecies(int arr[], int& low, int& high, int val, int cap)

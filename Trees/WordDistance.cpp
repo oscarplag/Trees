@@ -14,9 +14,10 @@ WordDistance::WordDistance(vector<string> words)
 		}
 		else
 		{
-			vector<int>* temp = new vector<int>[1];
+			vector<int>* temp = new vector<int>();
 			temp->push_back(it-words.begin());
-			indecies.emplace(pair<string,vector<int>*>(*it,temp));
+			//indecies.emplace(pair<string,vector<int>*>(*it,temp));
+			indecies.insert(pair<string, vector<int>*>(*it, temp));
 		}
 	}
 }
@@ -46,14 +47,17 @@ int WordDistance::getDistance(string &str1, string &str2)
 		if(distance<minDist)
 			minDist = distance;
 
-		if(it2 != indecies2->end()-1)
+		vector<int>::iterator temp = next(it2);
+		if(temp != indecies2->end())
 		{
-			int next = abs(*it1-*(++it2));
-			if(next>distance)
+			int next = abs(*it1-*(temp));
+			if (next > distance)
 			{
 				it1++;
-				it2--;
 			}
+			else
+				it2++;
+
 		}
 		else
 			it1++;
@@ -82,12 +86,13 @@ int WordDistance::getDistanceMulti(string &str1, string& str2)
 		if (distance < minDist)
 			minDist = distance;
 
-		if (next(mIt2) != mIts2.second)
+		std::multimap<string, int>::iterator temp = next(mIt2);
+
+		if (temp != mIts2.second)
 		{
-			int next = abs(mIt1->second - (++mIt2)->second);
+			int next = abs(mIt1->second - temp->second);
 			if (next > distance)
 			{
-				mIt2--;
 				mIt1++;
 			}
 			else
