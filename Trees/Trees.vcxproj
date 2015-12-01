@@ -146,6 +146,8 @@
     <ClInclude Include="Heap.h" />
     <ClInclude Include="HundredGame.h" />
     <ClInclude Include="LRUCache.h" />
+    <ClInclude Include="LRUCache2.h" />
+    <ClInclude Include="LRUCache3.h" />
     <ClInclude Include="PickNumber.h" />
     <ClInclude Include="NestedList.h" />
     <ClInclude Include="Plane.h" />
@@ -163,6 +165,7 @@
     <ClCompile Include="Heap.cpp" />
     <ClCompile Include="HundredGame.cpp" />
     <ClCompile Include="LRUCache.cpp" />
+    <ClCompile Include="LRUCache2.cpp" />
     <ClCompile Include="PickNumber.cpp" />
     <ClCompile Include="NestedList.cpp" />
     <ClCompile Include="Plane.cpp" />

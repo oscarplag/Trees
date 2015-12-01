@@ -16,6 +16,7 @@
 #include <algorithm>
 #include <utility>
 #include <map>
+#include <unordered_map>
 #include "WordJustifier.h"
 #include "HundredGame.h"
 #include "PickNumber.h"
@@ -27,11 +28,13 @@
 #include "BinarySearchTree.h"
 #include "BuddyBitmap.h"
 #include "LRUCache.h"
+#include "LRUCache2.h"
+#include "LRUCache3.h"
 
 
 //#define INDECIES
 //#define COMMONPARENT
-#define PERMUTATIONS
+//#define PERMUTATIONS
 //#define PERMUTATIONS_VECTOR
 //#define HEAP
 //#define GREY_CODE
@@ -55,6 +58,7 @@
 //#define WORD_JUSTIFIER
 //#define BUDDY_BITMAP
 #define LRU_CACHE
+#define LRU_CACHE2
 
 
 using namespace std;
@@ -113,7 +117,11 @@ int _maxPalindrome(string &str, int** dp, int start, int end);
 
 int wordDistance(string sentence, string str1, string str2); 
 
+string myCacheFunc(const int& key);
+std::string fn(const std::string& s);
+int myFunc(const int &key);
 
+static int count_evaluations = 0;
 
 unsigned int nextPow2(unsigned int x) {
 	--x;
@@ -125,6 +133,10 @@ unsigned int nextPow2(unsigned int x) {
 	return ++x;
 }
 
+
+template <typename K, typename V> struct lru_cache_using_std_map {
+	typedef LRUCache2<K, V, std::map> type;
+};
 
 int _tmain(int argc, _TCHAR* argv[])
 {
@@ -149,6 +161,42 @@ int _tmain(int argc, _TCHAR* argv[])
 	int test2 = myCache.get(2);
 	int test3 = myCache.get(3);
 
+#endif
+
+#ifdef LRU_CACHE2
+	LRUCache3<int, int> myCache3(myFunc,5);
+	myCache3.Insert(1);
+	myCache3.Insert(2);
+	myCache3.Insert(3);
+	myCache3.Insert(4);
+	myCache3.Insert(5);
+	int test9 = myCache3.GetValue(1);
+	myCache3.Insert(6);
+	int test8 = myCache3.GetValue(2);
+	int test7 = myCache3.GetValue(3);
+
+	LRUCache3<string, string>myCache4(fn, 5);
+	myCache4.Insert("first");
+	myCache4.Insert("second");
+	myCache4.Insert("third");
+	myCache4.Insert("fourth");
+	myCache4.Insert("fifth");
+	count_evaluations = 0;
+	string myString1 = myCache4.GetValue("first");
+	myCache4.Insert("sixth");
+	string myString3 = myCache4.GetValue("third");
+	string myString2 = myCache4.GetValue("second");
+	
+
+	LRUCache2<string, string, std::map> myCache2(fn, 5);
+	myCache2("first");
+	myCache2("second");
+	myCache2("third");
+	myCache2("fourth");
+	myCache2("fifth");
+	myCache2("sixth");
+
+	//LRUCache2<string, string, std::unordered_map> myCache3(fn, 5);
 #endif
 
 #ifdef WORD_DIST
@@ -869,6 +917,25 @@ int _tmain(int argc, _TCHAR* argv[])
 #endif
 
 	return 0;
+}
+
+string myCacheFunc(const int& key)
+{
+	return "test";
+}
+
+
+std::string fn(const std::string& s)
+{
+	++count_evaluations;
+	std::string r;
+	std::copy(s.rbegin(), s.rend(), std::back_inserter(r));
+	return r;
+}
+int myFunc(const int &key)
+{
+	//return ++count_evaluations;
+	return key;
 }
 
 double powerNew(int x, int y)
